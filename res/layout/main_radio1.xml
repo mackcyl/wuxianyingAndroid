@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="#f7f2ed"
+    android:orientation="vertical" >
+
+    <include
+            android:id="@+id/index_top_bar"
+            layout="@layout/include_index_main_topbar" />
+    <View
+            android:layout_width="fill_parent"
+            android:layout_height="1dip"
+            android:background="#dbd7d4" />
+    <include
+        android:id="@+id/view"
+        layout="@layout/include_main_weather" />
+    <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="71dip"
+            android:orientation="horizontal"
+            android:background="#00b5ff">
+
+            <TextView
+                android:id="@+id/index_repair_log"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_gravity="center"
+                android:paddingLeft="45dip"
+                android:paddingTop="15dip"
+                android:textColor="#fff"
+                android:textSize="20dip"
+                android:text="欢迎使用掌上物业"
+            />
+    </LinearLayout>
+
+    <GridView
+            android:id="@+id/MyGridView"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_weight="1"
+            android:fadingEdge="none"
+            android:gravity="center"
+            android:horizontalSpacing="10dp"
+            android:numColumns="auto_fit"
+            android:overScrollMode="never"
+            android:padding="10dp"
+            android:scrollbars="none"
+            android:stretchMode="columnWidth"
+            android:verticalSpacing="10dp" >
+    </GridView>
+
+    <include
+            android:id="@+id/view_network_error"
+            layout="@layout/network_error"
+            android:visibility="gone" />
+
+
+</LinearLayout>

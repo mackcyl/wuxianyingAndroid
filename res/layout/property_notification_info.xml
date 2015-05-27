@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="#ffffff"
+    android:orientation="vertical" >
+
+    <include layout="@layout/include_main_topbar" />
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="1dip"
+        android:background="#dfdfdf" >
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_gravity="center"
+        android:layout_margin="10dip"
+        android:layout_weight="1"
+        android:orientation="vertical" >
+
+
+
+        <ScrollView
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:focusable="false"
+            android:orientation="vertical"
+            android:scrollbars="none" android:fadingEdge="none" >
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_gravity="top"
+                android:orientation="vertical" >
+	        <TextView
+	            android:id="@+id/ProductMessageInfoTimeTextView"
+	            android:layout_width="fill_parent"
+	            android:layout_height="wrap_content"
+	            android:gravity="center|left"
+	            android:textColor="#666666"
+	            android:textSize="30sp"
+	            android:textStyle="bold"
+	             >
+	        </TextView>
+	
+	        <TextView
+	            android:id="@+id/NoticeTimeTextView"
+	            android:layout_width="fill_parent"
+	            android:layout_height="wrap_content"
+	            android:gravity="center|left"
+	            android:paddingTop="10dip"
+	            android:textColor="#8c8c8c"
+	            android:textSize="12sp"
+	             >
+	        </TextView>
+	        
+                <TextView
+                    android:id="@+id/ProductMessageInfoContentTextView"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:minHeight="200dip"
+	            	android:paddingTop="10dip"
+	           		android:gravity="top|left"
+                    android:textColor="#848484"
+                    android:textSize="18sp"
+	             >
+                </TextView>
+
+                <TextView
+                    android:id="@+id/NoticeSignatureTextView"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="40dip"
+                    android:gravity="right"
+                    android:textColor="#848484"
+                    android:textSize="20sp"
+	            >
+                </TextView>
+
+                <TextView
+                    android:id="@+id/NoticeSignatureTimeTextView"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="right"
+                    android:textColor="#848484"
+                    android:layout_marginTop="5dip"
+	            	
+                    android:textSize="20sp" >
+                </TextView>
+            </LinearLayout>
+        </ScrollView>
+    </LinearLayout>
+
+</LinearLayout>

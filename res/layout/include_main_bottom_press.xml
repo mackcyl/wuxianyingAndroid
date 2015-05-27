@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="75dip"
+    android:orientation="vertical" >
+
+    		<View  
+   				android:layout_width="fill_parent"  
+    			android:layout_height="1dip" 
+   				android:background="#bbbbbb" />
+	<RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="74dip"
+        android:background="#f3f3f2"
+        android:gravity="center" >
+
+        <ImageView
+            android:id="@+id/BohaoLinearLayout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="35dp"
+            android:src="@drawable/style_bohao" />
+
+        <ImageView
+            android:id="@+id/TuichuLinearLayout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="35dp"
+            android:src="@drawable/style_tuichu" />
+
+        <ImageView
+            android:id="@+id/ShouyeLinearLayout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:src="@drawable/style_shouye" />
+
+    </RelativeLayout>
+
+</LinearLayout>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="fill_parent" android:layout_height="fill_parent"
+	android:orientation="vertical">
+
+	<RelativeLayout android:layout_width="fill_parent"
+		android:background="@drawable/topbar_bg" android:orientation="horizontal"
+		android:layout_height="wrap_content">
+		<Button android:id="@+id/topbar_left" android:textSize="@dimen/topbar_left_text_size"
+			android:textColor="@color/white" android:layout_centerVertical="true"
+			android:layout_marginLeft="3dip" android:background="@drawable/style_topbar_left"
+			android:layout_width="wrap_content" android:layout_height="wrap_content"
+			android:layout_alignParentLeft="true" android:text="@string/txt_back"
+			android:paddingLeft="5dip" />
+		<TextView android:textSize="@dimen/topbar_center_text_size"
+			android:textColor="@color/white" android:layout_centerInParent="true"
+			android:id="@+id/topbar_txt" android:layout_width="wrap_content"
+			android:layout_height="wrap_content" android:text="@string/help" />
+	</RelativeLayout>
+
+	<LinearLayout android:orientation="vertical"
+		android:layout_width="fill_parent" android:layout_height="fill_parent"
+		android:background="@drawable/item_bg" 
+				 android:layout_weight="1">
+	<WebView android:id="@+id/help_webview" android:layout_height="fill_parent"
+		android:layout_width="fill_parent" />
+	
+	</LinearLayout>
+
+</LinearLayout>
+
+

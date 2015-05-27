@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="#eceded"
+    android:orientation="vertical" >
+    <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:gravity="bottom"
+            android:orientation="vertical" >
+<include android:id="@+id/IncludeMainTopBarInclude"  layout="@layout/include_main_topbar" />
+
+    </LinearLayout>
+    <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="18dp"
+            android:gravity="center"
+            android:paddingLeft="25dip"
+            android:paddingRight="25dip"
+            android:orientation="vertical" >
+    </LinearLayout>
+    
+    <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="45dp"
+            android:gravity="bottom"
+            android:orientation="vertical" >
+
+        	<RelativeLayout
+        	    android:layout_width="fill_parent"
+        	    android:layout_height="45dp"
+        	    android:background="#ffffff"
+        	    android:gravity="center" >
+
+	           <EditText
+	               android:id="@+id/Register2_edit1"
+	               android:layout_width="fill_parent"
+	               android:layout_height="45dp"
+	               android:layout_alignParentBottom="true"
+	               android:layout_alignParentTop="true"
+	               android:layout_marginLeft="20dp" 
+				   android:layout_marginRight="20dp"
+	               android:background="@drawable/style_edittext_white"
+	               android:ems="30"
+	               android:gravity="center|left"
+	               android:hint="@string/register2_edithint1"
+	               android:singleLine="true"
+	               android:textColor="#545454"
+	               
+                   android:textSize="@dimen/input_text_size" />
+
+	           <ImageButton
+	               android:id="@+id/Register2_edit1_clear_btn"
+	               android:layout_width="wrap_content"
+	               android:layout_height="wrap_content"
+	               android:layout_alignRight="@+id/Register2_edit1"
+	               android:layout_centerVertical="true"
+	               android:background="@drawable/style_edittext_white"
+	               android:src="@drawable/clear_txt" />
+
+            </RelativeLayout>
+        	
+        </LinearLayout>
+    	
+     <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="45dp"
+            android:gravity="bottom"
+            android:orientation="vertical" >
+
+        	<RelativeLayout
+        	    android:layout_width="fill_parent"
+        	    android:layout_height="45dp"
+        	    android:background="#ffffff"
+        	    android:gravity="center" >
+
+	           <EditText
+	               android:id="@+id/Register2_edit2"
+	               android:layout_width="fill_parent"
+	               android:layout_height="45dp"
+	               android:layout_alignParentBottom="true"
+	               android:layout_alignParentTop="true"
+	               android:layout_marginLeft="20dp" 
+				   android:layout_marginRight="20dp"
+	               android:background="@drawable/style_edittext_white"
+	               android:ems="30"
+	               android:password="true"
+	               android:gravity="center|left"
+	               android:hint="@string/register2_edithint2"
+	               android:singleLine="true"
+	               android:textColor="#545454"
+	               
+                   android:textSize="@dimen/input_text_size" />
+
+	           <ImageButton
+	               android:id="@+id/Register2_edit2_clear_btn"
+	               android:layout_width="wrap_content"
+	               android:layout_height="wrap_content"
+	               android:layout_alignRight="@+id/Register2_edit2"
+	               android:layout_centerVertical="true"
+	               android:background="@drawable/style_edittext_white"
+	               android:src="@drawable/clear_txt" />
+
+            </RelativeLayout>
+        	
+        </LinearLayout>
+		<LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="45dp"
+            android:gravity="bottom"
+            android:orientation="vertical" >
+
+        	<RelativeLayout
+        	    android:layout_width="fill_parent"
+        	    android:layout_height="45dp"
+        	    android:background="#ffffff"
+        	    android:gravity="center" >
+
+	           <EditText
+	               android:id="@+id/Register2_edit3"
+	               android:layout_width="fill_parent"
+	               android:layout_height="45dp"
+	               android:password="true"
+	               android:layout_alignParentBottom="true"
+	               android:layout_alignParentTop="true"
+	               android:layout_marginLeft="20dp" 
+				   android:layout_marginRight="20dp"
+	               android:background="@drawable/style_edittext_white"
+	               android:ems="30"
+	               android:gravity="center|left"
+	               android:hint="@string/register2_edithint3"
+	               android:singleLine="true"
+	               android:textColor="#545454"
+	               
+                   android:textSize="@dimen/input_text_size" />
+
+	           <ImageButton
+	               android:id="@+id/Register2_edit3_clear_btn"
+	               android:layout_width="wrap_content"
+	               android:layout_height="wrap_content"
+	               android:layout_alignRight="@+id/Register2_edit3"
+	               android:layout_centerVertical="true"
+	               android:background="@drawable/style_edittext_white"
+	               android:src="@drawable/clear_txt" />
+
+            </RelativeLayout>
+        	
+        </LinearLayout>        
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="50dp"
+            android:gravity="center|left"
+            android:paddingLeft="30dip"
+            android:orientation="horizontal" >
+        	<TextView 
+        	    android:id="@+id/Register2_txt1"
+        	    android:layout_width="wrap_content"
+            	android:layout_height="wrap_content"
+            	android:text="密码为"
+	            android:singleLine="true"
+            	android:textColor="#666666"
+            	android:textSize="12.0dip"/>	           
+        	<TextView 
+        	    android:id="@+id/Register2_txt2"
+        	    android:layout_width="wrap_content"
+            	android:layout_height="wrap_content"
+            	android:text="密码为"
+	            android:singleLine="true"
+            	android:textColor="#005870"
+            	android:textSize="12.0dip"/>
+        	<TextView 
+        	    android:id="@+id/Register2_txt3"
+        	    android:layout_width="wrap_content"
+            	android:layout_height="wrap_content"
+            	android:text="密码为"
+	            android:singleLine="true"
+            	android:textColor="#d83400"
+            	android:textSize="12.0dip"/>
+    	</LinearLayout>
+    	
+       	<LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="70dip"
+            android:layout_marginLeft="12dip"
+            android:layout_marginRight="12dip"
+            android:layout_marginTop="24dip"
+            android:background="#FFECEDED"
+            android:gravity="top"
+            android:orientation="vertical" >
+
+            <Button
+                android:id="@+id/Register2_btn"
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:background="@drawable/blue_btn_normal"
+                android:text="@string/register2_reg"
+                android:textColor="@drawable/blue_btn_txt_normal"
+                android:textSize="@dimen/button_text_size" />
+
+        </LinearLayout>
+ 
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:gravity="bottom|center"
+            android:layout_marginBottom="30dip"
+            android:orientation="vertical" >
+        	<TextView 
+        	    android:layout_width="wrap_content"
+            	android:layout_height="wrap_content"
+            	android:text="@string/company_name"
+            	android:textColor="#555555"
+            	android:textSize="12.0dip"/>
+        	    
+        </LinearLayout>
+</LinearLayout>

@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:orientation="vertical" android:layout_width="fill_parent"
+	android:layout_height="fill_parent" android:background="@drawable/main_bg">
+
+	<RelativeLayout android:layout_width="fill_parent"
+		android:background="@drawable/topbar_bg" android:orientation="horizontal"
+		android:layout_height="wrap_content">
+		<Button android:id="@+id/topbar_left" android:textSize="@dimen/topbar_left_text_size"
+			android:textColor="@color/white" android:layout_centerVertical="true"
+			android:layout_marginLeft="3dip" android:background="@drawable/style_topbar_left"
+			android:layout_width="wrap_content" android:layout_height="wrap_content"
+			android:layout_alignParentLeft="true" android:text="@string/txt_back"
+			android:paddingLeft="5dip" />
+		<TextView android:textSize="@dimen/topbar_center_text_size"
+			android:textColor="@color/white" android:layout_centerInParent="true"
+			android:id="@+id/topbar_txt" android:layout_width="wrap_content"
+			android:layout_height="wrap_content" android:text="@string/my_position" />
+	</RelativeLayout>
+
+	<ScrollView android:layout_width="fill_parent"
+		android:scrollbars="none" android:layout_height="fill_parent"
+		android:orientation="vertical" android:layout_weight="1">
+		<LinearLayout android:orientation="vertical"
+			android:layout_width="fill_parent" android:layout_height="fill_parent"
+			android:paddingTop="10dip" android:paddingLeft="10dip"
+			android:paddingRight="10dip">
+
+			<TextView android:layout_height="wrap_content"
+				android:textColor="@color/black" android:textSize="@dimen/more_item_text_size"
+				android:layout_width="wrap_content" android:paddingLeft="10dip"
+				android:layout_gravity="center_vertical" android:text="定位您的城市" />
+
+			<LinearLayout android:id="@+id/linear_locate_city" android:layout_width="fill_parent"
+				android:layout_height="@dimen/more_item_height" android:orientation="horizontal"
+				android:layout_marginTop="5dip" android:background="@drawable/item_bg">
+				<TextView android:id="@+id/text_locate_city" android:layout_height="wrap_content"
+					android:textColor="@color/black" android:textSize="@dimen/more_item_text_size"
+					android:layout_width="fill_parent" android:layout_marginLeft="10dip"
+					android:layout_marginRight="0dip" android:layout_gravity="center_vertical"
+					android:text="正在定位..." />
+			</LinearLayout>
+
+			<TextView android:layout_height="wrap_content"
+				android:textColor="@color/black" android:textSize="@dimen/more_item_text_size"
+				android:layout_width="wrap_content" android:paddingLeft="10dip" android:layout_marginTop="10dip" 
+				android:layout_gravity="center_vertical" android:text="请选择所在城市" />
+
+			<LinearLayout android:id="@+id/linear_more_city"
+				android:layout_width="fill_parent" android:layout_height="@dimen/more_item_height"
+				android:layout_marginTop="5dip" android:orientation="horizontal"
+				android:background="@drawable/style_item">
+				<TextView android:id="@+id/text_more_city" android:layout_height="wrap_content"
+					android:textColor="@color/black" android:textSize="@dimen/more_item_text_size"
+					android:layout_width="wrap_content" android:layout_marginLeft="10dip"
+					android:layout_gravity="center_vertical" android:layout_weight="1"
+					android:text="更多城市" />
+				<ImageView android:layout_width="wrap_content"
+					android:layout_height="wrap_content" android:src="@drawable/arrow_right"
+					android:layout_gravity="center_vertical|right"
+					android:layout_marginRight="10dip" />
+			</LinearLayout>
+		</LinearLayout>
+	</ScrollView>
+
+	<include layout="@layout/include_main_radiogroup" />
+</LinearLayout>

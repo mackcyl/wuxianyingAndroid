@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="#eceded"
+    android:orientation="vertical" >
+
+<include android:id="@+id/IncludeMainTopBarInclude"  layout="@layout/include_main_topbar" />
+    <LinearLayout 
+    android:layout_width="fill_parent"
+    android:layout_height="40dip"
+    android:background="#ffffff"
+    android:orientation="vertical" >
+    	<LinearLayout
+	    android:layout_width="fill_parent"
+	    android:layout_height="60dip"
+	    android:orientation="horizontal" >
+	    	
+	    	<LinearLayout 
+		    android:layout_width="fill_parent"
+		    android:layout_height="40dip"
+		    android:layout_weight="1"
+		    android:orientation="vertical" >
+		    	<TextView
+		        android:id="@+id/all_product"
+		        android:layout_width="wrap_content"
+		        android:layout_height="36dip"
+		        android:textColor="#666666"
+		        android:gravity="center"
+		        android:layout_gravity="center"
+		        android:textSize="21.0dip"
+		        android:text="全部" />
+		    	
+    			<View  
+		        android:id="@+id/all_product_line"
+   				android:layout_width="fill_parent"  
+    			android:layout_height="4dip"  />
+		    </LinearLayout>
+	    	<LinearLayout 
+		    android:layout_width="fill_parent"
+		    android:layout_height="40dip"
+		    android:layout_weight="1"
+		    android:orientation="vertical" >
+		    	<TextView
+		        android:id="@+id/my_product"
+		        android:layout_width="wrap_content"
+		        android:layout_height="36dip"
+		        android:textColor="#666666"
+		        android:gravity="center"
+		        android:layout_gravity="center"
+		        android:textSize="21.0dip"
+		        android:text="我的" />
+		    	
+    			<View  
+		        android:id="@+id/my_product_line"
+   				android:layout_width="fill_parent"  
+    			android:layout_height="4dip"  />
+		    </LinearLayout>
+	    </LinearLayout>
+    </LinearLayout>
+    <ListView
+        android:id="@+id/product_list_view_all"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dip"
+        android:layout_marginRight="10dip"
+        android:layout_marginTop="5dip"
+        android:layout_weight="1"
+        android:cacheColorHint="#00000000"
+        android:divider="@drawable/list_line"
+        android:fadingEdge="none"
+        android:listSelector="#00000000"  />
+    <ListView
+        android:id="@+id/product_list_view_my"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dip"
+        android:layout_marginRight="10dip"
+        android:layout_marginTop="5dip"
+        android:layout_weight="1"
+        android:cacheColorHint="#00000000"
+        android:divider="@drawable/list_line"
+        android:fadingEdge="none"
+        android:listSelector="#00000000"  />
+
+    <include
+        android:id="@+id/view_network_error"
+        layout="@layout/network_error"
+        android:visibility="gone" />
+
+    <TextView
+        android:id="@+id/empty_tv"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="80dip"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:text="暂无商品发布"
+        android:textColor="#000000"
+        android:textSize="18dip"
+        android:visibility="gone" />
+
+
+</LinearLayout>

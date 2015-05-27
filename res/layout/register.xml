@@ -1,0 +1,237 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="#ffffff"
+    android:orientation="vertical" >
+
+    <include layout="@layout/include_main_topbar" />
+
+    <ScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:scrollbars="none" >
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:padding="20dip"
+                android:src="@drawable/register_logo" />
+
+            <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:background="#C7FD9D"
+                android:paddingLeft="10dip"
+                android:text="@string/register_title"
+                android:textColor="@color/black"
+                android:textSize="@dimen/more_item_text_size" />
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dip"
+                android:layout_marginRight="5dip"
+                android:layout_marginTop="20dip"
+                android:orientation="vertical"
+                android:paddingLeft="5dip" >
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="@dimen/more_item_height"
+                    android:layout_marginLeft="0dip"
+                    android:layout_marginRight="0dip"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal" >
+
+                    <TextView
+                        android:layout_width="90dip"
+                        android:layout_height="fill_parent"
+                        android:gravity="right"
+                        android:text="门牌号："
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/more_item_text_size" />
+
+                    <EditText
+                        android:id="@+id/HouseNumbereEditText"
+                        android:layout_width="fill_parent"
+                        android:layout_height="fill_parent"
+                        android:layout_marginLeft="10dip"
+                        android:inputType="textPersonName|textCapWords"
+                        android:singleLine="true"
+                        android:textSize="@dimen/more_item_text_size" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="0dip"
+                    android:layout_marginRight="0dip"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal" >
+
+                    <TextView
+                        android:layout_width="90dip"
+                        android:layout_height="fill_parent"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/more_item_text_size" />
+
+                    <TextView
+                        android:layout_width="fill_parent"
+                        android:layout_height="fill_parent"
+                        android:layout_marginLeft="10dip"
+                        android:text="格式为：区+楼号+房间号 \n 例如：A区9号楼805，则输入：A9805"
+                        android:textColor="#A2A2A2"
+                        android:textSize="15dip" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="0dip"
+                    android:layout_marginRight="0dip"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal" >
+
+                    <TextView
+                        android:layout_width="90dip"
+                        android:layout_height="fill_parent"
+                        android:gravity="right"
+                        android:text="业主姓名："
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/more_item_text_size" />
+
+                    <EditText
+                        android:id="@+id/ProprietorNameEditText"
+                        android:layout_width="fill_parent"
+                        android:layout_height="fill_parent"
+                        android:layout_marginLeft="10dip"
+                        android:singleLine="true"
+                        android:textSize="@dimen/more_item_text_size" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="@dimen/more_item_height"
+                    android:layout_marginLeft="0dip"
+                    android:layout_marginRight="0dip"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal" >
+
+                    <TextView
+                        android:layout_width="90dip"
+                        android:layout_height="fill_parent"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/more_item_text_size" />
+
+                    <TextView
+                        android:layout_width="fill_parent"
+                        android:layout_height="fill_parent"
+                        android:layout_marginLeft="10dip"
+                        android:text="请输入您房屋在物业登记的业主姓名"
+                        android:textColor="#A2A2A2"
+                        android:textSize="15dip" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="@dimen/more_item_height"
+                    android:layout_marginLeft="0dip"
+                    android:layout_marginRight="0dip"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal" >
+
+                    <TextView
+                        android:layout_width="90dip"
+                        android:layout_height="fill_parent"
+                        android:gravity="right"
+                        android:text="用户名："
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/more_item_text_size" />
+
+                    <EditText
+                        android:id="@+id/UserNameEditText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="fill_parent"
+                        android:layout_marginLeft="10dip"
+                        android:layout_weight="1"
+                        android:singleLine="true"
+                        android:textSize="@dimen/more_item_text_size" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="@dimen/more_item_height"
+                    android:layout_marginLeft="0dip"
+                    android:layout_marginRight="0dip"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal" >
+
+                    <TextView
+                        android:layout_width="90dip"
+                        android:layout_height="fill_parent"
+                        android:gravity="right"
+                        android:text="密码："
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/more_item_text_size" />
+
+                    <EditText
+                        android:id="@+id/PasswordEditText"
+                        android:layout_width="fill_parent"
+                        android:layout_height="fill_parent"
+                        android:layout_marginLeft="10dip"
+                        android:password="true"
+                        android:singleLine="true"
+                        android:textSize="@dimen/more_item_text_size" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="@dimen/more_item_height"
+                    android:layout_marginLeft="0dip"
+                    android:layout_marginRight="0dip"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal" >
+
+                    <TextView
+                        android:layout_width="90dip"
+                        android:layout_height="fill_parent"
+                        android:gravity="right"
+                        android:text="确认密码："
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/more_item_text_size" />
+
+                    <EditText
+                        android:id="@+id/RegPasswordEditText"
+                        android:layout_width="fill_parent"
+                        android:layout_height="fill_parent"
+                        android:layout_marginLeft="10dip"
+                        android:password="true"
+                        android:singleLine="true"
+                        android:textSize="@dimen/more_item_text_size" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/RegisterButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginBottom="20dip"
+                android:layout_marginTop="10dip"
+                android:background="@drawable/style_logout"
+                android:text="@string/register_now"
+                android:textColor="@color/login_text_color"
+                android:textSize="18dip" />
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

@@ -1,0 +1,262 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="#F3F1DA"
+    android:orientation="vertical" >
+<include android:id="@+id/IncludeMainTopBarInclude"  layout="@layout/include_main_topbar" />
+    <RadioGroup
+        android:id="@+id/MessageradioGroup"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:gravity="center_vertical"
+        android:orientation="horizontal" >
+
+        <RadioButton
+            android:id="@+id/MessageInBoxRadioButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/style_search_radio_left"
+            android:button="@drawable/radio_button"
+            android:gravity="center"
+            android:textColor="@color/square_text_color"
+            android:textSize="16dip" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="fill_parent"
+            android:background="@drawable/button_divider" />
+
+        <RadioButton
+            android:id="@+id/MessageOutBoxRadioButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/style_search_radio_center"
+            android:button="@drawable/radio_button"
+            android:gravity="center"
+            android:textColor="@color/square_text_color"
+            android:textSize="16dip" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="fill_parent"
+            android:background="@drawable/button_divider" />
+
+        <RadioButton
+            android:id="@+id/NewMessageRadioButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/style_search_radio_right"
+            android:button="@drawable/radio_button"
+            android:gravity="center"
+            android:textColor="@color/square_text_color"
+            android:textSize="16dip" />
+    </RadioGroup>
+
+    <include
+        android:id="@+id/view_network_error"
+        android:layout_centerInParent="true"
+        layout="@layout/network_error"
+        android:visibility="gone" />
+    <!-- 新建信息 -->
+
+    <LinearLayout
+        android:id="@+id/EmailMessageAddLinearLayout"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_marginBottom="15dip"
+        android:orientation="vertical"
+        android:padding="10dip" >
+
+        <Spinner
+            android:id="@+id/EmailMessageSpinner"
+            android:layout_width="fill_parent"
+            android:layout_height="40dip" >
+        </Spinner>
+
+        <EditText
+            android:id="@+id/EmailMessageTitleEditText"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dip"
+            android:hint="输入标题" />
+
+        <EditText
+            android:id="@+id/EmailMessageBodyEditText"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dip"
+            android:layout_weight="1"
+            android:gravity="top"
+            android:hint="输入内容" >
+        </EditText>
+
+        <Button
+            android:id="@+id/SendMessageButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="15dip"
+            android:layout_marginTop="15dip"
+            android:background="@drawable/style_logout"
+            android:text="提交"
+            android:textColor="@color/login_text_color"
+            android:textSize="18dip" />
+         <TextView
+            android:id="@+id/IsVisitorTextView"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="您现在的身份是未验证用户，请等待物业验证通过后即可提交信息"
+            android:layout_gravity="center"
+            android:visibility="gone"
+             >
+        </TextView>
+    </LinearLayout>
+    <!-- 新建信息 -->
+
+
+    <!-- 查看信息内容 -->
+
+    <LinearLayout
+        android:id="@+id/EmailMessageShowLinearLayout"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_gravity="center"
+        android:layout_margin="10dip"
+        android:gravity="center"
+        android:orientation="vertical" >
+
+        <TextView   
+            android:id="@+id/MessageShowTitleTextView"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content" android:textSize="20dip" android:textStyle="bold"
+            android:textColor="@color/black" android:gravity="center">
+        </TextView>
+
+        <TextView
+            android:id="@+id/MessageShowTimeTextView"
+            android:layout_width="fill_parent"
+            android:layout_height="30dip"
+            android:gravity="center"  android:textColor="#A5A5A5">
+        </TextView>
+
+        <ScrollView
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+           
+            android:layout_weight="1"
+            android:focusable="false"
+            android:orientation="vertical"
+            android:scrollbars="none" >
+
+            <TextView android:padding="20dip"
+                android:id="@+id/MessageShowBodyTextView"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                 android:minHeight="200dip"
+                android:background="@drawable/tongzhi_bg" android:textColor="@color/black">
+            </TextView>
+        </ScrollView>
+
+        <Button
+            android:id="@+id/SendMessageShowButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="15dip"
+            android:layout_marginTop="15dip"
+            android:background="@drawable/style_logout"
+            android:text="提交"
+            android:textColor="@color/login_text_color"
+            android:textSize="18dip" />
+        <TextView
+            android:id="@+id/IsVisitorTextView"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="您现在的身份是未验证用户，请等待物业验证通过后即可提交信息"
+            android:layout_gravity="center"    android:visibility="gone"
+             >
+        </TextView>
+    </LinearLayout>
+
+    <!-- 查看信息内容 -->
+
+
+    <!-- 发件箱 -->
+
+    <ListView
+        android:id="@+id/EmailMessageOutboxListView"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dip"
+        android:layout_marginRight="10dip"
+        android:layout_marginTop="10dip"
+        android:layout_weight="1"
+        android:cacheColorHint="#00000000"
+        android:fadingEdge="none"
+        android:listSelector="#00000000" />
+    <!-- 发件箱 -->
+
+
+    <!-- 收件箱 -->
+
+    <ListView
+        android:id="@+id/EmailMessageInboxListView"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dip"
+        android:layout_marginRight="10dip"
+        android:layout_marginTop="10dip"
+        android:layout_weight="1"
+        android:cacheColorHint="#00000000"
+        android:fadingEdge="none"
+        android:listSelector="#00000000" />
+    <!-- 收件箱 -->
+
+ <!-- 收件箱详情 -->
+ <LinearLayout
+        android:id="@+id/EmailMessageInboxContentLinearLayout"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:orientation="vertical" >
+    <ListView
+        android:id="@+id/EmailMessageInboxContentListView"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dip"
+        android:layout_marginRight="10dip"
+        android:layout_marginTop="10dip"
+        android:layout_weight="1"
+        android:cacheColorHint="#00000000"
+        android:fadingEdge="none"
+        android:listSelector="#00000000" />
+     <Button
+            android:id="@+id/SendInBoxMessageButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="15dip"
+            android:layout_marginTop="15dip"
+            android:background="@drawable/style_logout"
+            android:text="回复"
+            android:textColor="@color/login_text_color"
+            android:textSize="18dip" />
+        <TextView
+            android:id="@+id/IsVisitorTextView"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="您现在的身份是未验证用户，请等待物业验证通过后即可提交信息"
+            android:layout_gravity="center"    android:visibility="gone"
+             >
+        </TextView>
+            
+</LinearLayout>
+    <!-- 收件箱详情 -->
+    
+</LinearLayout>

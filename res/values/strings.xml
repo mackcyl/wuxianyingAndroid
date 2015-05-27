@@ -1,0 +1,357 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">掌上物业</string>
+    <string name="company_name">掌上物业</string>
+    <string name="radio_main1">首页</string>
+    <string name="radio_main2">物业通知</string>
+    <string name="radio_main3">信息反馈</string>
+    <string name="radio_main4">快递代收</string>
+    <string name="radio_main5">更多</string>
+    <string name="property_phone">010-84939234</string>
+    <string name="register_title">尊敬的用户：\n
+		为保证小区业主权益，更好的为业主服务,注册用户名需要实名认证.\n</string>
+    <string name="register_menpaihao">格式为：区+楼号+门牌号，\n
+                         例如：A区9号楼805，输入A9805</string>
+    <string name="menu_index1_txt">关于</string>
+    <string name="menu_index2_txt">系统设置</string>
+    <string name="menu_index3_txt">意见反馈</string>
+    <string name="menu_index4_txt">帮助</string>
+    <string name="menu_index5_txt">退出</string>
+    <string name="menu_index6_txt">商场地图</string>
+    <string name="error_please_input_collection">请输入业务代收内容</string>
+    <string name="txt_tips">提示</string>
+    <string name="txt_tips_login_error">登陆失败，是否找回密码？</string>
+    <string name="txt_back">返回</string>
+    <string name="txt_ok">确定</string>
+    <string name="txt_confirm">确认</string>
+    <string name="txt_cancel">取消</string>
+    <string name="button_complete">完成</string>
+    <string name="button_edit">编辑</string>
+    <string name="txt_loading">正在加载... 请稍候</string>
+    <string name="update_available_title">发现新版本</string>
+    <string name="update_available_info">是否立即更新？</string>
+    <string name="update_available_buttonLeft">立即更新</string>
+    <string name="update_available_buttonRight">下次再说</string>
+    <string name="update_inavailable_title">未检测到新版本</string>
+    <string name="update_inavailable_info">您当前安装的是最新版本</string>
+    <string name="update_error_title">更新错误</string>
+    <string name="update_error_info">版本检测出现异常，请稍后再试</string>
+    <string name="update_error_info2">更新失败，请稍后再试</string>
+    <string name="update_wait_title">正在更新，请稍等......</string>
+    <string name="dialog_title">温馨提示</string>
+    <string name="dialog_info_exit">确认退出了吗？</string>
+    <string name="radio_logs">动态大厅</string>
+    <string name="radio_users">用户大厅</string>
+    <string name="radio_apps">游戏应用</string>
+    <string name="user_info_title">用户详情</string>
+    <string name="app_info_title">应用详情</string>
+    <string name="app_info_down">免费下载</string>
+    <string name="time_min">分钟前</string>
+    <string name="time_hour">小时前</string>
+    <string name="time_day">天前</string>
+    <string name="time_now">0分钟前</string>
+    <string name="button_login">登 录</string>
+    <string name="word_login">用户登录</string>
+    <string name="button_reg">注 册</string>
+    <string name="word_reg">用户注册</string>
+    <string name="phone_reg">手机注册</string>
+    <string name="register_now">立即注册</string>
+    <string name="register_by_phone">手机号注册</string>
+    <string name="free_register">免费注册</string>
+    <string name="free_tourist">游客</string>
+    <string name="forget_password">忘记密码</string>
+    <string name="button_login_by_phone">手机号登录</string>
+    <string name="button_login_normal">普通登录</string>
+    <string name="button_register_phone">手机号注册</string>
+    <string name="button_register_normal">普通注册</string>
+    <string name="word_name">用户名:</string>
+    <string name="word_name_hint">输入用户名</string>
+    <string name="word_input_password_hint">请输入密码</string>
+    <string name="email_address">Email地址:</string>
+    <string name="phone_number">手机号:</string>
+    <string name="checked_number">校验码:</string>
+    <string name="checked_image">验证码:</string>
+    <string name="get_checked_number">获取校验码</string>
+    <string name="change_next_image">换一张</string>
+    <string name="level">等级：</string>
+    <string name="point">积分：</string>
+    <string name="send">发送</string>
+    <string name="share">分享</string>
+    <string name="find_password_prompt"></string>
+    <string name="input_username_hint">请输入您在注册时输入的用户名</string>
+    <string name="input_register_username_hint">4-20位字符，可由中英文、数字、_和-组成</string>
+    <string name="input_phonenumber_hint">请输入您的手机号</string>
+    <string name="agreement_prompt">已阅读或同意《巴黎商场用户协议》</string>
+    <string name="agreement_title">巴黎商场用户协议</string>
+    <string name="invitation_code_title">输入邀请码</string>
+    <string name="error_please_input_invitation_code">请输入邀请码</string>
+    <string name="error_please_input_username">请输入用户名</string>
+    <string name="error_please_input_password">请输入密码</string>
+    <string name="error_please_input_phonenumber">请输入手机号码</string>
+    <string name="error_please_input_checkednumber">请输入校验码</string>
+    <string name="error_username_not_exist">没有这个用户名</string>
+    <string name="error_password_incorrect">密码输入错误</string>
+    <string name="kuba_product_link">http://www.coo8.com/product/%s.html</string>
+    <string name="main_share_text">巴黎商场推出的巴黎商场免费客户端很不错，可以随时获得最新商品折扣信息，下载地址为：http://221.0.78.196:8080/xmldataview/setup/wimall4android.apk </string>
+    <string name="share_content">巴黎商场卖的%s很不错，分享一下。---通过巴黎商场手机客户端发送。</string>
+    <string name="error_username_cannot_be_empty">用户名不能为空</string>
+    <string name="error_password_cannot_be_empty">密码不能为空</string>
+    <string name="error_username_length">用户名应为4-16位</string>
+    <string name="error_email_cannot_be_empty">邮箱不能为空</string>
+    <string name="error_input_legal_email">请输入正确的邮箱地址</string>
+    <string name="error_not_accept_agreement">未接受协议</string>
+    <string name="error_two_password_not_same">您两次输入的密码不一致</string>
+    <string name="error_username_already_exist">用户名已存在</string>
+    <string name="error_couponid_cannot_be_empty">优惠券编号不能为空</string>
+    <string name="error_userphonenumber_cannot_be_empty">手机号不能为空</string>
+    <string name="error_phonenumber_different">手机号与获取验证码的手机号不一致</string>
+    <string name="error_userphonenumber">手机号码不合法,应为11位数字</string>
+    <string name="error_checkednumber_cannot_be_empty">校验码不能为空</string>
+    <string name="error_checkedimg_cannot_be_empty">验证码不能为空</string>
+    <string name="error_checkedimg_different">验证码不正确</string>
+    <string name="msg_getCheckedNumber_ok">校验码短信已发送,请查收</string>
+    <string name="current_password">原密码:</string>
+    <string name="new_password">新密码:</string>
+    <string name="new_password2">确认新密码:</string>
+    <string name="modify_password">修改密码</string>
+    <string name="find_password">找回密码</string>
+    <string name="word_password">密码:</string>
+    <string name="word_verf_password">确认密码:</string>
+    <string name="word_password_hint">密码</string>
+    <string name="word_password_hint2">密码应为6-16位</string>
+    <string name="word_newreg">新用户注册</string>
+    <string name="warn_name">您忘记输入账号了哦~</string>
+    <string name="warn_password">您忘记输入密码了哦~</string>
+    <string name="warn_wrong">您输入的账号和密码不匹配。</string>
+    <string name="warn_pass_match">两次输入的密码不一样哦~</string>
+    <string name="warn_bad_format">密码必须是6-16位的数字、字母组合哦~</string>
+    <string name="warn_bad_name">账户格式不正确，要使用邮箱哦~</string>
+    <string name="warn_mail">您输入的邮箱地址已经被使用了，换一个吧~</string>
+    <string name="please_choose_email">请选择电子邮件客户端</string>
+    <string name="save">保存</string>
+    <string name="feedback">反馈</string>
+    <string name="edit">编辑</string>
+    <string name="delete">删除</string>
+    <string name="help">帮助</string>
+    <string name="about">关于</string>
+    <string name="account_center">账户中心</string>
+    <string name="coupon">优惠券</string>
+    <string name="account_info">账户信息</string>
+    <string name="favorite">收藏夹</string>
+    <string name="my_order">我的订单</string>
+    <string name="my_position">我的位置</string>
+    <string name="invoice_info">发票信息</string>
+    <string name="invoice_mg">发票管理</string>
+    <string name="address_mg">地址管理</string>
+    <string name="point_rule">积分兑换规则</string>
+    <string name="address_detail">地址详情</string>
+    <string name="status">状态：</string>
+    <string name="total_price">总价：</string>
+    <string name="order_state">状态：</string>
+    <string name="recipient">收件人：</string>
+    <string name="phone">联系电话：</string>
+    <string name="address">地址：</string>
+    <string name="zipcode">邮编：</string>
+    <string name="ship_type">送货方式：</string>
+    <string name="pay_type">支付方式：</string>
+    <string name="ship_time">送货时间：</string>
+    <string name="order_notes">备注：</string>
+    <string name="product_list">商品清单</string>
+    <string name="product_code">商品编码：</string>
+    <string name="product_name">商品名称：</string>
+    <string name="product_unit">单位：</string>
+    <string name="size">尺码：</string>
+    <string name="count">数量：</string>
+    <string name="price">单价：</string>
+    <string name="total_count">数量总计：</string>
+    <string name="product_total_price">商品金额总计：</string>
+    <string name="trans_price">运费：</string>
+    <string name="discount_price">优惠金额：</string>
+    <string name="result_price">您共需为订单支付：</string>
+
+    <!-- add address -->
+    <string name="address_name_null">您还没有填写收件人姓名呢~</string>
+    <string name="address_phone_null">请先填写手机号码或固定电话吧~</string>
+    <string name="address_area_null">您忘记选择配送区域了哦</string>
+    <string name="address_zipcode_null">您忘记输入邮编了哦</string>
+    <string name="address_address_null">请输入收货地址哦</string>
+    <string name="address_zippost_error">邮编格式不正确哦，记得是6位数字</string>
+    <string name="address_phone_error">您输入的固定电话号码不正确哦~</string>
+    <string name="address_mobile_error">您输入的手机号码不正确哦~</string>
+    <string name="address_success">增加收货地址成功</string>
+    <string name="address_error">请填写收货地址哦~</string>
+    <string name="address_update_error">修改收货地址为空</string>
+    <string name="address_update_success">修改收货地址成功</string>
+    <string name="address_area_error">配送区域不能为空哦~</string>
+    <!-- add address -->
+
+    <string name="coupon_introduction">您通过邮件或者短信获取的优惠券才需要激活，激活后不能取消，激活优惠券将验证并绑定该优惠券到您的个人账户，激活成功后即可在系统中显示和使用。</string>
+    <string name="pay_str">支持货到付款地区 \n
+
+		北京 送货范围：北京市六环内 \n
+		支持品类：大家电、厨卫电器、生活电器、手机通讯、数码产品、汽车用品、新奇特\n
+		支付形式：现金，pos刷卡（免手续费，限库巴物流） \n
+		运费：以网站下单为准 \n\n
+
+		天津 送货范围：和平区、河东区、河西区、河北区、南开区、红桥区\n
+		支持品类：大家电、厨卫电器、生活电器、手机通讯、数码产品 \n
+		支持形式：现金，pos刷卡（免手续费，限库巴物流） \n
+		运费：以网站下单为准 \n\n
+
+		上海 送货范围：除横沙岛、长兴岛以外的地区均可送达\n
+		支持品类：大家电、厨卫电器、生活电器 \n
+		支持形式：现金，pos刷卡（免手续费，限库巴物流）\n
+		运费：以网站下单为准 \n\n
+
+		广州 送货范围：东起：北二环高速、黄埔大桥、京港澳高速；西至：西环高速、新光快速；南起：番禺平康路、市莲路；北至：北环高速、京珠高速\n
+		支持品类：大家电、厨卫电器、生活电器 \n
+		支持形式：现金，pos刷卡（免手续费，限库巴物流）\n
+		运费：以网站下单为准 \n\n
+
+		厦门 送货范围：思明区、湖里区、集美区、海沧区、翔安区、同安区\n
+		支持品类：大家电、厨卫电器、生活电器、手机通讯、数码产品 \n
+		支付形式：现金，pos刷卡（免手续费，限库巴物流） \n
+		运费：以网站下单为准 \n\n
+
+		深圳 送货范围：罗湖区、福田区、南山区、龙岗区、宝安区、盐田区\n
+		支持品类：大家电、厨卫电器、生活电器、手机通讯、数码产品 \n
+		支付形式：现金，pos刷卡（免手续费，限库巴物流） \n
+		运费：以网站下单为准 \n\n
+
+		福州 送货范围：鼓楼区、晋安区、仓山区、台江区、马尾区\n
+		支持品类：大家电 \n
+		支付形式：现金，pos刷卡（免手续费，限库巴物流）\n
+		运费：以网站下单为准 \n\n
+
+		武汉
+		送货范围：江岸区、汉阳区、洪山区、武昌区、青山区、硚口区、江汉区、江夏区市区、东西湖区、新洲区市区内、蔡甸区市区内、黄陂区市区内、汉南区市区\n
+		支持品类：大家电、厨卫电器、生活电器、手机通讯、数码产品 \n
+		支付形式：现金，pos刷卡（免手续费，限库巴物流） \n
+		运费：以网站下单为准 \n\n
+
+		长沙 送货范围：芙蓉区、天心区、岳麓区、开福区、雨花区、长沙县星沙镇城区\n
+		支持品类：大家电、厨卫电器、生活电器、手机通讯、数码产品 \n
+		支付形式：现金，pos刷卡（免手续费，限库巴物流） \n
+		运费：以网站下单为准 \n\n
+
+		南京
+		送货范围：玄武区、建邺区、鼓楼区、下关区、浦口区、白下区(绕城公路内)、秦淮区(绕城公路内)、栖霞区(绕城公路内)、雨花台区(绕城公路内)、江宁区(天元东路以内)\n
+		支持品类：大家电、厨卫电器、生活电器、手机通讯、数码产品 \n
+		支付形式：现金，pos刷卡（免手续费，限库巴物流）\n
+		运费：以网站下单为准 \n\n
+
+		成都 送货范围：锦江区、青羊区、金牛区、武侯区、成华区\n
+		支持品类：大家电、厨卫电器、生活电器、手机通讯、数码产品\n
+		支付形式：现金，pos刷卡（免手续费，限库巴物流） \n
+		运费：以网站下单为准 \n\n
+
+		石家庄 送货范围：新华区、长安区、裕华区、桥东区、桥西区、经济技术开发区\n
+		支持品类：大家电、厨卫电器、生活电器、手机通讯、数码产品 \n
+		支付形式：现金，pos刷卡（免手续费，限库巴物流） \n
+		运费：以网站下单为准 \n\n
+
+		杭州 送货范围：上城区、下城区、江干区、拱墅区、西湖区、滨江区、萧山区、余杭区、桐庐县、淳安县、建德市、富阳市、临安市\n
+		支持品类：大家电、厨卫电器、生活电器、手机通讯、数码产品 \n
+		支付形式：现金，pos刷卡（免手续费，限库巴物流） \n
+		运费：以网站下单为准 \n\n
+
+		合肥 送货范围：瑶海区、庐阳区、蜀山区、包河区、肥东县县城、肥西县县城\n
+		支持品类：大家电、厨卫电器、生活电器、手机通讯、数码产品 \n
+		支付形式：现金，pos刷卡（免手续费，限库巴物流） \n
+		运费：以网站下单为准 \n\n
+
+		青岛 送货范围：青岛市市南区、市北区、李沧区、四方区、崂山区、城阳区、黄岛区、胶南市、胶州市、平度市、莱西市\n
+		支持品类：大家电、厨卫电器、生活电器、手机通讯、数码产品 \n
+		支付形式：现金，pos刷卡（免手续费，限库巴物流） \n
+		运费：以网站下单为准 \n\n
+
+		沈阳 送货范围：大东区、铁西区、沈河区、和平区、皇姑区、浑南新区、苏家屯区、沈北新区、新民、辽中\n
+		支持品类：大家电、厨卫电器、生活电器、手机通讯、数码产品 \n
+		支付形式：现金，pos刷卡（免手续费，限库巴物流） \n
+		运费：以网站下单为准 \n\n
+
+		郑州 送货范围：金水区、管城区、中原区、二七区、惠济区\n
+		支持品类：大家电、厨卫电器、生活电器、手机通讯、数码产品\n
+		支付形式：现金，pos刷卡（免手续费，限库巴物流） \n
+		运费：以网站下单为准 \n\n
+
+		漳州 送货范围：芗城区、龙文区、云霄县、漳浦县、诏安县、长泰县、东山县、南靖县、平和县、华安县、龙海市\n
+		支持品类：大家电、厨卫电器、生活电器、手机通讯、数码产品 \n
+		支付形式：现金（免手续费，限库巴物流） \n
+		运费：以网站下单为准 \n\n
+
+		泉州 送货范围：泉州市、南安市、晋江市、石狮市\n
+		支持品类：大家电、厨卫电器、生活电器、手机通讯、数码产品\n
+		支付形式：现金（免手续费，限库巴物流） \n
+		运费：以网站下单为准 \n\n
+
+		温馨提示：POS机刷卡只支持带有银联标识的银行卡。</string>
+    <string name="thsm">		1、退回要求：凡是配件需要办理退货手续，请您务必将配件连同外包装一起寄回，保证商品的完整，包括原来的包装物、用户手册，和其他由厂商提供的所有附件，并保证产品未受污损。如果商品任何一部分丢失或损坏，则在您补全所有附件之前，我们无法提供退货服务。如果商品主机完好无损，附件丢失，并符合退货条件，需扣除所丢失或损坏附件的金额后办理退款。\n
+		2、退货邮费：因当地没有官方售后维修中心而寄回我们售后服务中心代为检测的邮费，先由您来承担，若商品确实有质量问题，则相应的物流费用随退款或以其他方式在处理结束前返还给您，并且更换后的寄送费用也由我们承担。\n
+		3、退货延误：由于商品不全而造成的退货退款延误，我们不承担责任。\n
+		4、发票退回：为保证您顺利办理退款，退货同时，请务必将开具的发票一同退回。\n</string>
+    <!-- 会员中心 -->
+    <string name="user_center_name">%s,您好！</string>
+    <string name="user_message_title">个人资料</string>
+    <string name="user_message_name">会员登录名:%s</string>
+    <string name="error_truename_cannot_be_empty">真实姓名不能为空</string>
+    <string name="error_truename_length">1-20位字符，可由中英文、数字、_和-组成</string>
+    <string name="error_email_length">邮箱输入不合法</string>
+    <string name="error_postcode_length">邮编输入不合法</string>
+
+
+    <!-- 会员中心 新版 20150517 mackcyl -->
+    <string name="gridview_tongzhi">通知</string>
+    <string name="gridview_progress">进度</string>
+    <string name="gridview_sign_qrcode">签码</string>
+    <string name="gridview_property">物业</string>
+    <string name="gridview_repair">报修</string>
+
+    <!-- 维修端   新版 20150517 mackcyl-->
+    <string name="gridview_my_task">我的任务</string>
+
+
+
+
+    <string name="gridview_xinxi">信息</string>
+    <string name="gridview_daishoukuaidi">代收快递</string>
+    <string name="gridview_tiaozhaoshichang">跳蚤市场</string>
+    <string name="gridview_canyin">餐饮</string>
+    <string name="gridview_gouwu">购物</string>
+    <string name="gridview_jiaotong">交通</string>
+    <string name="gridview_yiliao">医疗</string>
+    <string name="gridview_shenghuofuwu">生活服务</string>
+    <string name="gridview_changyongxinxi">常用信息</string>
+    <string name="gridview_youchangfuwu">有偿服务</string>
+    <string name="gridview_xiugaimima">修改密码</string>
+    <string name="gridview_shenghuobianqian">生活便签</string>
+    <string name="gridview_shezhi">设置</string>
+    <string name="gridview_tuijianyingyong">应用推荐</string>
+    <string name="gridview_wifi">免费WiFi</string>
+    
+
+    <!-- 注册 -->    
+    <string name="register1_title1">为确保小区业主权益，更好地为业主服务，注册用户需要实名认证。</string>
+    <string name="register1_edithint1">请输入门牌号</string>
+    <string name="register1_edithint2">请输入业主姓名</string>
+    <string name="register1_title2">区+楼号+房间名，例如A区9号楼805，输入A9805</string>
+    <string name="register1_title3">请输入您房屋在物业处登记的业主姓名</string>
+    <string name="register1_next">下一步</string>
+    <string name="register2_title">我的登陆</string>
+    <string name="register2_edithint1">设置登陆用户名</string>
+    <string name="register2_edithint2">请设置密码</string>
+    <string name="register2_edithint3">再次确认密码</string>
+    <string name="register2_reg">提交</string>
+    <string name="Register2_tip1">密码为6~16位数字或字母</string>
+    <string name="Register2_tip2">登录名和密码不能为空</string>
+    <string name="Register2_tip3">密码不一致</string>
+    
+    <!-- 信息 -->
+    <string name="message_left">新建</string>
+    
+    <string name="error_network">搜索失败,请检查网络连接！</string>
+    <string name="error_key">key验证无效！</string>
+    <string name="error_other">未知错误，请稍后重试!错误码为</string>
+    <string name="no_result">对不起，没有搜索到相关数据！</string>
+</resources>

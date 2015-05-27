@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="fill_parent"
+	android:layout_height="wrap_content"
+	android:orientation="vertical"
+	android:paddingRight="40dip"
+	android:gravity="left" >
+	<TextView
+		android:id="@+id/message_item_content"
+		android:layout_width="fill_parent"
+		android:layout_height="wrap_content"
+		android:paddingTop="10dip"
+		android:paddingLeft="20dip"
+		android:paddingRight="10dip"
+		android:paddingBottom="10dip"
+		android:textColor="#000000"
+		android:textSize="20sp"
+		android:text="asdasd "
+		android:background="@drawable/message_bg_2">
+	</TextView>
+	<TextView
+		android:id="@+id/message_item_time"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:textColor="#666666"
+		android:textSize="12sp"
+		android:text="2014年10月29日00:32:34">
+	</TextView>
+</LinearLayout>

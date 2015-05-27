@@ -1,0 +1,25 @@
+Keystore 类型： JKS
+Keystore 提供者： SUN
+
+您的 keystore 包含 1 输入
+
+别名名称： androiddebugkey
+创建日期： 2014-10-11
+项类型: PrivateKeyEntry
+认证链长度： 1
+认证 [1]:
+所有者:CN=Android Debug, O=Android, C=US
+签发人:CN=Android Debug, O=Android, C=US
+序列号:543939a4
+有效期: Sat Oct 11 22:07:32 CST 2014 至Mon Oct 03 22:07:32 CST 2044
+证书指纹:
+	 MD5:38:5A:9E:2F:A6:81:B8:1C:F5:72:7E:05:D9:26:35:9B
+	 SHA1:65:7B:86:C4:73:6A:0C:C6:32:E6:51:FB:C5:95:AC:9E:5D:53:93:AF
+	 签名算法名称:SHA1withRSA
+	 版本: 3
+
+
+*******************************************
+*******************************************
+
+

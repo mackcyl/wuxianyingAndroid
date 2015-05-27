@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<dimen name="more_item_height">48.0dip</dimen>
+	<dimen name="more_item_text_size">18.0dip</dimen>
+	<dimen name="topbar_center_text_size">20.0dip</dimen>
+	<dimen name="topbar_left_text_size">12.0dip</dimen>
+	<dimen name="button_text_size">20.0dip</dimen>
+	<dimen name="input_text_size">16.0dip</dimen>
+	<dimen name="dialog_content_text_size">12.0dip</dimen>
+	<dimen name="dialog_title_text_size">14.0dip</dimen>
+</resources>

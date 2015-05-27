@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:orientation="vertical" android:gravity="center_horizontal"
+	android:layout_width="80dip" android:paddingTop="5dip"
+	android:layout_height="90dip">
+	<FrameLayout android:scaleType="fitCenter"
+		android:background="@drawable/user_bg" android:layout_width="66dip"
+		android:layout_height="66dip">
+		<ImageView android:layout_width="48dip" android:id="@+id/appIcon"
+			android:layout_height="48dip" android:layout_gravity="center"></ImageView>
+	</FrameLayout>
+	<TextView android:id="@+id/appName" android:layout_width="66dip"
+		android:ellipsize="marquee" android:textColor="#ff1f1f1f"
+		android:lines="2" android:layout_height="wrap_content"
+		android:gravity="center_horizontal" />
+</LinearLayout>

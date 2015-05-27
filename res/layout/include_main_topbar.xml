@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="50dip"
+    android:background="#fff"
+    android:orientation="horizontal" >
+
+    <Button
+        android:id="@+id/topbar_left"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="8dip"
+        android:background="@drawable/style_topbar_left"
+        android:paddingLeft="5dip"
+        android:visibility="gone" />
+
+    <TextView
+        android:id="@+id/topbar_txt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:textColor="#8d8d8d"
+        android:textStyle="bold"
+        android:textSize="21.0dip" />
+
+      <TextView
+        android:id="@+id/topbar_right"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="8dip"
+        android:textColor="#ffffff"
+        android:paddingRight="5dip"  android:textSize="18.0dip"
+        android:visibility="gone" />
+
+ <Button
+        android:id="@+id/topbar_button_right"
+        android:layout_width="40dip"
+        android:layout_height="40dip"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="8dip"
+        android:paddingRight="5dip"  
+        android:visibility="gone" />
+</RelativeLayout>

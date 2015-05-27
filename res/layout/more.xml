@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="150dip"
+    android:layout_height="fill_parent"
+  
+    android:orientation="vertical" >
+
+    
+   <LinearLayout android:orientation="vertical"
+			android:layout_width="wrap_content" android:layout_height="fill_parent"
+			android:paddingLeft="10dip" android:paddingRight="10dip" android:paddingBottom="15dip">
+
+			<LinearLayout android:id="@+id/CommonInformationLinearLayout"
+				android:layout_width="fill_parent" android:layout_height="@dimen/more_item_height"
+				android:orientation="horizontal" android:layout_marginTop="10dip"
+				android:background="@drawable/style_item_top">
+				<ImageView android:layout_width="wrap_content"
+					android:layout_height="wrap_content" android:src="@drawable/more_changyongxinxi"
+					android:layout_gravity="center_vertical|left"
+					android:layout_marginRight="10dip" />
+				<TextView android:id="@+id/textview1"
+					android:layout_height="wrap_content" android:textColor="@color/black"
+					android:textSize="@dimen/more_item_text_size" android:layout_width="wrap_content"
+					android:layout_marginLeft="10dip" android:layout_gravity="center_vertical|right"
+					android:layout_weight="1" android:text="常用信息" />
+				<ImageView android:layout_width="wrap_content"
+					android:layout_height="wrap_content" android:src="@drawable/more_jiantou"
+					android:layout_gravity="center_vertical|right"
+					android:layout_marginRight="10dip" />
+			</LinearLayout>
+
+			<LinearLayout android:layout_width="fill_parent"
+				android:layout_height="1px" android:background="@drawable/list_divider" />
+
+			<LinearLayout android:id="@+id/PaidServicesLinearLayout"
+				android:layout_width="fill_parent" android:layout_height="@dimen/more_item_height"
+				android:orientation="horizontal" android:background="@drawable/style_item_center">
+				<ImageView android:layout_width="wrap_content"
+					android:layout_height="wrap_content" android:src="@drawable/more_youchangfuwu"
+					android:layout_gravity="center_vertical|left"
+					android:layout_marginRight="10dip" />
+				<TextView android:id="@+id/textview2"
+					android:layout_height="wrap_content" android:textColor="@color/black"
+					android:textSize="@dimen/more_item_text_size" android:layout_width="wrap_content"
+					android:layout_marginLeft="10dip" android:layout_gravity="center_vertical|right"
+					android:layout_weight="1" android:text="有偿服务" />
+				<ImageView android:layout_width="wrap_content"
+					android:layout_height="wrap_content" android:src="@drawable/more_jiantou"
+					android:layout_gravity="center_vertical|right"
+					android:layout_marginRight="10dip" />
+			</LinearLayout>
+
+			<LinearLayout android:layout_width="fill_parent"
+				android:layout_height="1px" android:background="@drawable/list_divider" />
+
+			<LinearLayout android:id="@+id/LivingCircleLinearLayout"
+				android:layout_width="fill_parent" android:layout_height="@dimen/more_item_height"
+				android:orientation="horizontal" android:background="@drawable/style_item_center">
+				<ImageView android:layout_width="wrap_content"
+					android:layout_height="wrap_content" android:src="@drawable/more_shenghuoquan"
+					android:layout_gravity="center_vertical|left"
+					android:layout_marginRight="10dip" />
+				<TextView android:id="@+id/textview3"
+					android:layout_height="wrap_content" android:textColor="@color/black"
+					android:textSize="@dimen/more_item_text_size" android:layout_width="wrap_content"
+					android:layout_marginLeft="10dip" android:layout_gravity="center_vertical|right"
+					android:layout_weight="1" android:text="生活圈" />
+				<ImageView android:layout_width="wrap_content"
+					android:layout_height="wrap_content" android:src="@drawable/more_jiantou"
+					android:layout_gravity="center_vertical|right"
+					android:layout_marginRight="10dip" />
+			</LinearLayout>
+
+			<LinearLayout android:layout_width="fill_parent"
+				android:layout_height="1px" android:background="@drawable/list_divider" />
+
+			<LinearLayout android:id="@+id/PropertyPhoneLinearLayout"
+				android:layout_width="fill_parent" android:layout_height="@dimen/more_item_height"
+				android:orientation="horizontal" android:background="@drawable/style_item_center">
+				<ImageView android:layout_width="wrap_content"
+					android:layout_height="wrap_content" android:src="@drawable/more_wuyedianhua"
+					android:layout_gravity="center_vertical|left"
+					android:layout_marginRight="10dip" />
+				<TextView android:id="@+id/textview4"
+					android:layout_height="wrap_content" android:textColor="@color/black"
+					android:textSize="@dimen/more_item_text_size" android:layout_width="wrap_content"
+					android:layout_marginLeft="10dip" android:layout_gravity="center_vertical|right"
+					android:layout_weight="1" android:text="物业电话" />
+				<ImageView android:layout_width="wrap_content"
+					android:layout_height="wrap_content" android:src="@drawable/more_jiantou"
+					android:layout_gravity="center_vertical|right"
+					android:layout_marginRight="10dip" />
+			</LinearLayout>
+			
+			<LinearLayout android:layout_width="fill_parent"
+				android:layout_height="1px" android:background="@drawable/list_divider" />
+                      <LinearLayout android:id="@+id/FleaListLinearLayout"
+				android:layout_width="fill_parent" android:layout_height="@dimen/more_item_height"
+				android:orientation="horizontal" android:background="@drawable/style_item_center">
+				<ImageView android:layout_width="wrap_content"
+					android:layout_height="wrap_content" android:src="@drawable/more_tiaozhaoshichang"
+					android:layout_gravity="center_vertical|left"
+					android:layout_marginRight="10dip" />
+				<TextView android:id="@+id/textview5"
+					android:layout_height="wrap_content" android:textColor="@color/black"
+					android:textSize="@dimen/more_item_text_size" android:layout_width="wrap_content"
+					android:layout_marginLeft="10dip" android:layout_gravity="center_vertical|right"
+					android:layout_weight="1" android:text="跳蚤市场" />
+				<ImageView android:layout_width="wrap_content"
+					android:layout_height="wrap_content" android:src="@drawable/more_jiantou"
+					android:layout_gravity="center_vertical|right"
+					android:layout_marginRight="10dip" />
+			</LinearLayout>
+
+			<LinearLayout android:layout_width="fill_parent"
+				android:layout_height="1px" android:background="@drawable/list_divider" />
+			<LinearLayout android:id="@+id/ChangePasswordLinearLayout"
+				android:layout_width="fill_parent" android:layout_height="@dimen/more_item_height"
+				android:orientation="horizontal" android:background="@drawable/style_item_center">
+				<ImageView android:layout_width="wrap_content"
+					android:layout_height="wrap_content" android:src="@drawable/more_xiugaimima"
+					android:layout_gravity="center_vertical|left"
+					android:layout_marginRight="10dip" />
+				<TextView android:id="@+id/textview"
+					android:layout_height="wrap_content" android:textColor="@color/black"
+					android:textSize="@dimen/more_item_text_size" android:layout_width="wrap_content"
+					android:layout_marginLeft="10dip" android:layout_gravity="center_vertical|right"
+					android:layout_weight="1" android:text="修改密码" />
+				<ImageView android:layout_width="wrap_content"
+					android:layout_height="wrap_content" android:src="@drawable/more_jiantou"
+					android:layout_gravity="center_vertical|right"
+					android:layout_marginRight="10dip" />
+			</LinearLayout>
+
+			<LinearLayout android:layout_width="fill_parent"
+				android:layout_height="1px" android:background="@drawable/list_divider" />
+
+			<LinearLayout android:id="@+id/QuitLoginLinearLayout"
+				android:layout_width="fill_parent" android:layout_height="@dimen/more_item_height"
+				android:orientation="horizontal"    android:background="@drawable/more_bg">
+				<ImageView android:layout_width="wrap_content"
+					android:layout_height="wrap_content" android:src="@drawable/more_loginout"
+					android:layout_gravity="center_vertical|left"
+					android:layout_marginRight="10dip" />
+				<TextView android:id="@+id/textview6"
+					android:layout_height="wrap_content" android:textColor="@color/black"
+					android:textSize="@dimen/more_item_text_size" android:layout_width="wrap_content"
+					android:layout_marginLeft="10dip" android:layout_gravity="center_vertical|right"
+					android:layout_weight="1" android:text="退出登录" />
+				<ImageView android:layout_width="wrap_content"
+					android:layout_height="wrap_content" android:src="@drawable/more_jiantou"
+					android:layout_gravity="center_vertical|right"
+					android:layout_marginRight="10dip" />
+			</LinearLayout>
+
+			
+		</LinearLayout>
+</LinearLayout>

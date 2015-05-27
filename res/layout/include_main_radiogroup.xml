@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:layout_width="fill_parent"
+	android:layout_height="wrap_content" android:orientation="vertical"
+	xmlns:android="http://schemas.android.com/apk/res/android">
+	<FrameLayout android:layout_width="fill_parent"
+		android:layout_height="wrap_content">
+		<RadioGroup android:id="@+id/radioGroup"
+			android:background="@drawable/bottombar_bg" android:orientation="horizontal"
+			android:layout_width="fill_parent" android:layout_height="wrap_content"
+			android:gravity="center_vertical">
+			<RadioButton android:id="@+id/toggle_radio1"
+				android:layout_weight="1" android:button="@drawable/radio_button"
+				android:background="@drawable/style_togglebar_button1"
+				android:gravity="bottom|center_horizontal" android:layout_width="wrap_content"
+				android:layout_height="wrap_content" />
+			<RadioButton android:id="@+id/toggle_radio2"
+				android:layout_weight="1" android:button="@drawable/radio_button"
+				android:background="@drawable/style_togglebar_button2" 
+				android:gravity="bottom|center_horizontal" android:layout_width="wrap_content"
+				android:layout_height="wrap_content" />
+			<RadioButton android:id="@+id/toggle_radio3"
+				android:layout_weight="1" android:button="@drawable/radio_button"
+				android:background="@drawable/style_togglebar_button3"
+				android:gravity="bottom|center_horizontal" android:layout_width="wrap_content"
+				android:layout_height="wrap_content" />
+			<RadioButton android:id="@+id/toggle_radio4"
+				android:layout_weight="1" android:button="@drawable/radio_button"
+				android:background="@drawable/style_togglebar_button4" 
+				android:gravity="bottom|center_horizontal" android:layout_width="wrap_content"
+				android:layout_height="wrap_content" />
+			<RadioButton android:id="@+id/toggle_radio5"
+				android:layout_weight="1" android:button="@drawable/radio_button"
+				android:background="@drawable/style_togglebar_button5" 
+				android:gravity="bottom|center_horizontal" android:layout_width="wrap_content"
+				android:layout_height="wrap_content" />
+			
+		</RadioGroup>
+		<LinearLayout android:layout_width="fill_parent"
+			android:layout_height="wrap_content" android:orientation="horizontal">
+			<ImageView android:layout_weight="1" android:layout_width="61dip"
+				android:layout_height="46dip" android:layout_gravity="right" />
+			<ImageView android:layout_weight="1"
+				android:layout_marginLeft="15dip" android:layout_width="46dip"
+				android:layout_height="46dip" android:layout_gravity="right" />
+			<ImageView android:layout_weight="1" android:layout_width="61dip"
+				android:layout_height="46dip" android:layout_gravity="right" />
+			<ImageView android:id="@+id/cart_imageview"
+				android:layout_marginLeft="15dip" android:layout_weight="1"
+				android:layout_width="46dip" android:layout_height="46dip"
+				android:layout_gravity="right" />
+			
+		</LinearLayout>
+	</FrameLayout>
+</LinearLayout>

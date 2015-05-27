@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="fill_parent" android:layout_height="fill_parent"
+	android:orientation="vertical">
+
+	<LinearLayout android:layout_width="fill_parent"
+		android:layout_height="fill_parent" android:orientation="vertical"
+		android:background="@drawable/main_bg" android:layout_weight="1">
+
+		<RelativeLayout android:layout_width="fill_parent"
+			android:background="@drawable/topbar_bg" android:orientation="horizontal"
+			android:layout_height="wrap_content">
+			<Button android:id="@+id/topbar_left" android:textSize="@dimen/topbar_left_text_size"
+				android:textColor="@color/white" android:layout_centerVertical="true"
+				android:layout_marginLeft="3dip" android:background="@drawable/style_topbar_left"
+				android:layout_width="wrap_content" android:layout_height="wrap_content"
+				android:layout_alignParentLeft="true" android:text="@string/txt_back"
+				android:paddingLeft="5dip" />
+			<TextView android:textSize="@dimen/topbar_center_text_size"
+				android:textColor="@color/white" android:layout_centerInParent="true"
+				android:id="@+id/topbar_txt" android:layout_width="wrap_content"
+				android:layout_height="wrap_content" android:text="@string/about" />
+		</RelativeLayout>
+<!--
+		<RelativeLayout android:layout_width="fill_parent"
+			android:layout_height="wrap_content" android:layout_weight="1">
+			<ImageView android:layout_width="wrap_content"
+				android:layout_height="wrap_content" android:src="@drawable/about_logo"
+				android:layout_centerInParent="true" />
+		</RelativeLayout>
+-->
+		<LinearLayout android:orientation="vertical"
+			android:layout_width="fill_parent" android:layout_height="wrap_content"
+			android:layout_gravity="center" android:paddingLeft="10dip"
+			android:paddingRight="10dip" android:layout_weight="2">
+
+			<LinearLayout android:orientation="horizontal"
+				android:layout_width="fill_parent" android:layout_height="45dip"
+				android:paddingLeft="10dip" android:background="@drawable/item_bg_top"
+				android:gravity="center_vertical">
+				<TextView android:layout_width="wrap_content"
+					android:layout_height="wrap_content" android:text="版  本  号："
+					android:textSize="16dip" android:textColor="@color/black"
+					android:paddingLeft="10dip" />
+				<TextView android:id="@+id/text_version"
+					android:layout_width="wrap_content" android:layout_height="wrap_content"
+					android:text="" android:textSize="16dip" android:textColor="@color/black" />
+			</LinearLayout>
+
+			<LinearLayout android:layout_width="fill_parent"
+				android:layout_height="1px" android:background="@drawable/list_divider" />
+
+			<LinearLayout android:orientation="horizontal"
+				android:layout_width="fill_parent" android:layout_height="45dip"
+				android:paddingLeft="10dip" android:background="@drawable/item_bg_center"
+				android:gravity="center_vertical">
+				<TextView android:layout_width="wrap_content"
+					android:layout_height="wrap_content" android:text="官方网站："
+					android:textSize="16dip" android:textColor="@color/black"
+					android:paddingLeft="10dip" />
+				<TextView android:layout_width="wrap_content"
+					android:layout_height="wrap_content" android:text="www.coo8.com"
+					android:textSize="16dip" android:textColor="@color/black" />
+			</LinearLayout>
+
+			<LinearLayout android:layout_width="fill_parent"
+				android:layout_height="1px" android:background="@drawable/list_divider" />
+
+			<LinearLayout android:orientation="horizontal"
+				android:layout_width="fill_parent" android:layout_height="45dip"
+				android:paddingLeft="10dip" android:background="@drawable/item_bg_bottom"
+				android:gravity="center_vertical">
+				<TextView android:layout_width="wrap_content"
+					android:layout_height="wrap_content" android:text="客服邮箱："
+					android:textSize="16dip" android:textColor="@color/black"
+					android:paddingLeft="10dip" />
+				<TextView android:layout_width="wrap_content"
+					android:layout_height="wrap_content" android:text="service@coo8.com"
+					android:textSize="16dip" android:textColor="@color/black" />
+			</LinearLayout>
+
+			<TextView android:layout_width="wrap_content"
+				android:layout_height="wrap_content" android:text="Copyright © 2006-2011 Coo8.com 库巴"
+				android:textSize="13dip" android:textColor="@color/black"
+				android:layout_gravity="center" android:layout_marginTop="8dip"
+				android:layout_marginBottom="8dip" />
+
+		</LinearLayout>
+
+	</LinearLayout>
+
+
+</LinearLayout>

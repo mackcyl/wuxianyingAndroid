@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:orientation="vertical" android:gravity="center_horizontal" android:id="@+id/search_grid_bg"
+	android:layout_width="150dip" android:background="@drawable/style_search_result"
+	android:layout_height="150dip">
+	<ImageView android:layout_width="60dip" android:id="@+id/appIcon" android:layout_marginTop="20dip"
+		android:layout_height="60dip" android:layout_gravity="center" />
+	<TextView android:id="@+id/appDesc" android:layout_width="150dip" android:textSize="12dip"
+		android:gravity="center_horizontal" android:layout_marginTop="5dip"
+		android:textColor="@color/black" android:layout_height="60dip" />
+</LinearLayout>

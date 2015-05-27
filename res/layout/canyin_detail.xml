@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/app_info_all_rl"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="#ffffff"
+    android:orientation="vertical" >
+
+    <include layout="@layout/include_main_topbar" />
+
+    <ScrollView
+        android:id="@+id/all_view_sv"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:fadingEdge="none"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <LinearLayout
+                android:id="@+id/img_ll"
+                android:layout_width="fill_parent"
+                android:layout_height="200dip"
+                android:orientation="vertical" >
+
+                <com.wuxianyingke.property.views.MyGallery
+                    android:id="@+id/detail_gallery"
+                    android:layout_width="fill_parent"
+                    android:layout_height="170dip"
+                    android:fadingEdge="none" />
+
+                <com.wuxianyingke.property.views.IndicationDotList
+                    android:id="@+id/detail_indication"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginBottom="2dip" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_marginLeft="20dip"
+                android:layout_weight="1"
+                android:orientation="vertical" >
+
+                <TextView
+                    android:id="@+id/NameTextView"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dip"
+                    android:textColor="#69A570"
+                    android:textSize="25dip" />
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="1dip"
+                    android:background="#dfdfdf" >
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/TuanLinearLayout"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:orientation="horizontal" >
+
+                    <ImageView
+                        android:id="@+id/TuanImageView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="40dip"
+                        android:background="@drawable/tuan" />
+
+                    <TextView
+                        android:id="@+id/TuanNumberTextView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="20dip"
+                        android:layout_marginTop="4dip"
+                        android:paddingLeft="10dip"
+                        android:textColor="@color/red"
+                        android:textSize="16dip" />
+
+                    <TextView
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dip"
+                        android:paddingLeft="5dip"
+                        android:text=""
+                        android:textColor="#999999"
+                        android:textSize="20dip"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/RenjunTextView"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dip"
+                        android:paddingLeft="5dip"
+                        android:textColor="@color/red"
+                        android:textSize="20dip"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="1dip"
+                    android:background="#dfdfdf" >
+                </LinearLayout>
+
+
+
+                <LinearLayout
+                    android:id="@+id/JuanLinearLayout"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal" >
+
+                    <ImageView
+                        android:id="@+id/JuanImageView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="40dip"
+                        android:background="@drawable/juan" />
+
+                    <TextView
+                        android:id="@+id/JuanTextView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="20dip"
+                        android:layout_marginTop="4dip"
+                        android:ellipsize="end"
+                        android:paddingLeft="10dip"
+                        android:textColor="#666666"
+                        android:textSize="16dip" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="1dip"
+                    android:background="#dfdfdf" >
+                </LinearLayout>
+                                <TextView
+                    android:id="@+id/DianhuaTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="fill_parent"
+                    android:layout_marginTop="4dip"
+                    android:paddingLeft="10dip"
+                    android:textColor="@color/black"
+                    android:textSize="20dip" />
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="1dip"
+                    android:background="#dfdfdf" >
+                </LinearLayout>
+                <TextView
+                    android:id="@+id/DizhiTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="fill_parent"
+                    android:layout_marginTop="4dip"
+                    android:paddingLeft="10dip"
+                    android:textColor="@color/black"
+                    android:textSize="20dip" />
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="1dip"
+                    android:background="#dfdfdf" >
+                </LinearLayout>
+                <!-- 联系发布人 -->
+
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+
+            <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:layout_marginLeft="12dip"
+            android:layout_marginRight="12dip"
+            android:layout_marginTop="24dip"
+            android:layout_marginBottom="12dip"
+            android:background="#FFECEDED"
+            android:gravity="top"
+            android:orientation="vertical" >
+
+            <Button
+                android:id="@+id/LianxiButton"
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:background="@drawable/blue_btn_normal"
+                android:text="联系"
+                android:textColor="@drawable/blue_btn_txt_normal"
+                android:textSize="@dimen/button_text_size" />
+
+        </LinearLayout>
+
+    <include
+        android:id="@+id/view_network_error"
+        layout="@layout/network_error"
+        android:visibility="gone" />
+
+</LinearLayout>

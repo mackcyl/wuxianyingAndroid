@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@drawable/out_bg"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_weight="1"
+        android:orientation="vertical" >
+
+        <include layout="@layout/include_main_topbar" />
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center" >
+
+            <ImageView
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:src="@drawable/living_top" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center" android:layout_weight="1"
+           >
+
+            <ImageView android:padding="3dip"
+                android:id="@+id/YingshiImageView"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:src="@drawable/yingshi" android:background="@drawable/living_btn_normal"/>
+
+            <ImageView android:padding="3dip"
+                android:id="@+id/GouwuImageView"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:src="@drawable/gouwu" android:background="@drawable/living_btn_normal"/>
+
+            <ImageView android:padding="3dip"
+                android:id="@+id/ZhufangImageView"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:src="@drawable/jiaotong" android:background="@drawable/living_btn_normal" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center" android:layout_weight="1"
+            >
+
+            <ImageView android:padding="3dip"
+                android:id="@+id/YiyuanImageView"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:src="@drawable/yiliao" android:background="@drawable/living_btn_normal"/>
+
+            <ImageView android:padding="3dip"
+                android:id="@+id/DituImageView"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:src="@drawable/shenghuo" android:background="@drawable/living_btn_normal"/>
+
+            <ImageView android:padding="3dip"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:src="@drawable/living_btn_normal" />
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>

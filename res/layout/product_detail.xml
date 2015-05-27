@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="#ffffff"
+    android:orientation="vertical"  android:id="@+id/app_info_all_rl">
+
+        <LinearLayout
+        	android:id="@+id/topbar"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:gravity="bottom"
+            android:orientation="vertical" >
+<include android:id="@+id/IncludeMainTopBarInclude"  layout="@layout/include_main_topbar" />
+
+        </LinearLayout>
+
+
+    <ScrollView
+        android:id="@+id/all_view_sv"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/topbar"
+        android:fadingEdge="none"
+        android:scrollbars="none"
+        android:visibility="gone"   android:background="#ffffff"  >
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <LinearLayout
+                android:id="@+id/img_ll"
+                android:layout_width="fill_parent"
+                android:layout_height="200dip"
+                android:orientation="vertical" >
+
+                <com.wuxianyingke.property.views.MyGallery
+                    android:id="@+id/detail_gallery"
+                    android:layout_width="fill_parent"
+                    android:layout_height="170dip"
+                    android:layout_marginTop="5dip"
+                    android:fadingEdge="none" />
+
+                <com.wuxianyingke.property.views.IndicationDotList
+                    android:id="@+id/detail_indication"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginBottom="2dip" />
+                
+                <View  
+   				android:layout_width="fill_parent"  
+    			android:layout_height="1px" 
+   				android:background="#E6E7E8" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:orientation="vertical" 
+              android:layout_weight="1"
+                >
+
+
+                <TextView
+                    android:id="@+id/FleaNameTextView"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dip"
+                    android:paddingLeft="10dip" android:gravity="center"
+                    android:textColor="#69A570"
+                    android:textSize="25dip" />
+
+                <LinearLayout
+                    android:id="@+id/product_price_ll"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal" android:gravity="center" >
+
+                    <TextView
+                        android:id="@+id/ContactNameTextView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dip"
+                        android:paddingLeft="10dip" android:layout_marginRight="20dip" 
+                        android:textColor="#999999"
+                        android:textSize="16dip" />
+
+                    <TextView
+                        android:id="@+id/ContactTimeTextView"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dip"
+                        android:paddingLeft="5dip"
+                        android:textColor="#999999"
+                        android:textSize="20dip"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+                <TextView 
+                    android:id="@+id/FleaContentTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="fill_parent"
+                    android:layout_marginTop="4dip"
+                    android:paddingLeft="10dip"
+                    android:textColor="#999999"
+                    android:textSize="20dip" />
+
+                <!-- 联系发布人 -->
+                
+                 <TextView
+            android:id="@+id/IsVisitorTextView"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="您现在的身份是未验证用户，请等待物业验证通过后即可提交信息"
+            android:layout_gravity="center"
+            android:visibility="gone"
+             >
+        </TextView>
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+
+    <include
+        android:id="@+id/view_network_error"
+        android:layout_centerInParent="true"
+        layout="@layout/network_error"
+        android:visibility="gone" />
+
+</RelativeLayout>

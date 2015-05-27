@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:orientation="vertical" android:layout_width="fill_parent"
+	android:layout_height="fill_parent" android:background="#ffffff">
+	<include layout="@layout/include_main_topbar" />
+	<ScrollView android:layout_width="fill_parent"
+		android:scrollbars="none" android:layout_height="fill_parent"
+		android:orientation="vertical" android:layout_weight="1">
+		<LinearLayout android:orientation="vertical"
+			android:layout_width="fill_parent" android:layout_height="fill_parent"
+			android:paddingLeft="10dip" android:paddingRight="10dip">
+
+			<LinearLayout android:id="@+id/linear_account_center"
+				android:layout_width="fill_parent" android:layout_height="75dip"
+				android:orientation="horizontal" android:layout_marginTop="10dip"
+				android:background="@drawable/style_item">
+				<TextView android:id="@+id/textview1"
+					android:layout_height="wrap_content" android:textColor="@color/black"
+					android:textSize="@dimen/more_item_text_size" android:layout_width="wrap_content"
+					android:layout_marginLeft="10dip" android:layout_gravity="center_vertical|right"
+					android:layout_weight="1" android:text="数据流量短（彩）信"  />
+				<CheckBox android:id="@+id/PushMessageCheckBox" android:layout_width="wrap_content"
+					android:layout_height="wrap_content"  
+					android:layout_gravity="center_vertical|right"
+					android:layout_marginRight="10dip" />
+			</LinearLayout>
+
+			
+		</LinearLayout>
+	</ScrollView>
+</LinearLayout>
