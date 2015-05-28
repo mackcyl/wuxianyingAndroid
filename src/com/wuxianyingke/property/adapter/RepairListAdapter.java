@@ -12,10 +12,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.mantoto.property.R;
-import com.wuxianyingke.property.activities.MessageActivity;
-import com.wuxianyingke.property.activities.RepairListActivity;
-import com.wuxianyingke.property.common.LocalStore;
-import com.wuxianyingke.property.remote.RemoteApi;
+import com.wuxianyingke.property.activities.RepairLogActivity;
 import com.wuxianyingke.property.remote.RemoteApi.Repair;
 
 import java.util.List;
@@ -106,17 +103,6 @@ public class RepairListAdapter extends BaseAdapter {
 				break;
 		}
 
-		/*
-		if(activity.status.repairStatusId != 1)
-		{
-			activityItem.isReadImg.setVisibility(View.INVISIBLE);
-			activityItem.mRepairStatusTextView.setText(activity.status.repairStatusName);
-		}
-		else
-		{
-			activityItem.isReadImg.setVisibility(View.VISIBLE);
-		}
-		*/
 		activityItem.mRepairTypeTextView.setText(activity.type.repairTypeName+" - ");
 		activityItem.mRepairContentTextView.setText(activity.body);
 
@@ -128,14 +114,13 @@ public class RepairListAdapter extends BaseAdapter {
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
 				Intent intent=new Intent();
-				intent.setClass(mContext, MessageActivity.class);/*
-				intent.putExtra("productMessageInfoTitle", activity.header);
-				intent.putExtra("productMessageInfoTime", activity.cTime);
-				intent.putExtra("productMessageInfoContent", activity.body);
-				intent.putExtra("productMessageInfoType", activity.type.messageTypeID);
-				intent.putExtra("productMessageInfoSignature", activity.isRead);
-				intent.putExtra("productMessageInfoRootID", activity.messageID);
-				*/
+				intent.setClass(mContext, RepairLogActivity.class);
+				intent.putExtra("repairLogTitle", activity.type.repairTypeName);
+				intent.putExtra("repairLogStatusName", activity.status.repairStatusName);
+				intent.putExtra("repairLogStatusId", activity.status.repairStatusId);
+				intent.putExtra("repairLogStatusDesc", activity.status.repairStatusDescription);
+				intent.putExtra("repairId", activity.repairid);
+
 				mContext.startActivity(intent);
 			}
 		});

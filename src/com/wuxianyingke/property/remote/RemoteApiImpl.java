@@ -2876,4 +2876,102 @@ public class RemoteApiImpl implements RemoteApi {
 			return null;
 		}
 	}
+
+	@Override
+	public ArrayList<RepairLog> getRepairLog(Context c, long userId, long repairId, int propertyid) {
+		JSONObject lastest = new JSONObject();
+		JSONObject response = null;
+
+
+		try {
+			lastest.put("propertyid", propertyid);
+			lastest.put("userid", userId);
+			lastest.put("repairid", repairId);
+
+			byte[] httpPostBytes = lastest.toString().getBytes();
+			LogUtil.d("getRepairLog", "param:" + new String(httpPostBytes));
+			LogUtil.d("getRepairLog", "url:" + Constants.REPAIR_LIST_URL);
+
+			response = HttpComm.sendJSONToServer(
+					Constants.REPAIR_DETAIL_URL, lastest,
+					Constants.HTTP_SO_TIMEOUT);
+
+			LogUtil.d("getRepairLog", "response " + response);
+			if (response == null) {
+				return null;
+			}
+			ArrayList<RepairLog> ret = new ArrayList<RepairLog>();
+
+			if (200 == response.getInt("code")) {
+				JSONArray jsArray = (JSONArray) response.get("repairlogarray");
+				for (int i = 0; i < jsArray.length(); i++) {
+					JSONObject obj = (JSONObject) jsArray.get(i);
+
+					RepairLog repairLog = new RepairLog();
+					repairLog.displayContent = obj.getString("DisplayContent");
+					String repairLogCTime = obj.getString("RepairLogCTime");
+					if (!"".equals(repairLogCTime)) {
+						long ctimes = Long.valueOf(repairLogCTime);
+						repairLog.cTime = sdf.format(ctimes);
+					}
+
+					/*
+					Repair repair = new Repair();
+					repair.repairid = obj.getLong("RepairID");
+					repair.body = obj.getString("Body");
+
+					String ctime = obj.getString("CTime");
+					if (!"".equals(ctime)) {
+						long ctimes = Long.valueOf(ctime);
+						repair.cTime = sdf.format(ctimes);
+					}
+					repair.room = obj.getString("Room");
+					repair.contact = obj.getString("Contact");
+					String otime = obj.getString("OTime");
+					if (!"".equals(otime)) {
+						long otimes = Long.valueOf(otime);
+						repair.oTime = sdf.format(otimes);
+					}
+
+					JSONObject statusObj = obj.getJSONObject("Status");
+					RepairStatus repairStatus = new RepairStatus();
+					repairStatus.repairStatusId = statusObj.getLong("RepairStatusID");
+					repairStatus.repairStatusName = statusObj.getString("RepairStatusName");
+					repairStatus.repairStatusDescription = statusObj.getString("RepairStatusDescription");
+					repair.status = repairStatus;
+
+					JSONObject typeObj = obj.getJSONObject("Type");
+					RepairType repairType = new RepairType();
+					repairType.mayBePay = typeObj.getBoolean("MayBePay");
+					repairType.propertyID = typeObj.getLong("PropertyID");
+					repairType.repairTypeId = typeObj.getLong("RepairTypeID");
+					repairType.repairTypeDescription = typeObj.getString("RepairTypeDescription");
+					repairType.repairTypeName = typeObj.getString("RepairTypeName");
+					repairType.shortCut = typeObj.getBoolean("ShortCut");
+					repair.type = repairType;
+
+
+					JSONObject userObj = obj.getJSONObject("TheUser");
+					User theUser = new User();
+					theUser.userName = userObj.getString("TrueName");
+					repair.theUser = theUser;
+
+					JSONObject operatorObj = obj.getJSONObject("TheOperator");
+					PropertyUser theOperator = new PropertyUser();
+					theOperator.workerName = operatorObj.getString("WorkerName");
+					theOperator.mobile = operatorObj.getString("WorkerTel");
+					repair.theOperator = theOperator;
+					*/
+					ret.add(repairLog);
+
+				}
+			}
+			return ret;
+
+		} catch (Exception ex) {
+			ex.printStackTrace();
+			LogUtil.d("MyTag", "error: " + ex.getMessage());
+			return null;
+		}
+	}
 }

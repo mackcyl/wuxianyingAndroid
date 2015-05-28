@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+			  android:layout_width="fill_parent"
+			  android:layout_height="wrap_content"
+			  android:orientation="vertical"
+			  android:paddingRight="40dip"
+			  android:layout_marginTop="15dip"
+			  android:background="@drawable/repair_log_2"
+			  android:gravity="left"
+		>
+	<LinearLayout android:layout_width="fill_parent"
+				  android:layout_height="fill_parent"
+				  android:paddingLeft="50dip"
+				  android:paddingTop="20dip"
+				  android:orientation="vertical"
+			>
+		<TextView
+				android:id="@+id/repair_log_time"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:textColor="#999999"
+				android:textSize="14sp"
+				android:text="2014年10月29日00:32:34">
+		</TextView>
+		<TextView
+				android:id="@+id/repair_log_content"
+				android:layout_width="fill_parent"
+				android:layout_height="wrap_content"
+				android:paddingTop="4dip"
+				android:textColor="#444444"
+				android:textSize="20sp"
+				android:text="您提交了报修,请等受理 "
+				>
+		</TextView>
+		<TextView
+				android:id="@+id/repair_log_theWorker"
+				android:layout_width="fill_parent"
+				android:layout_height="wrap_content"
+				android:paddingTop="2dip"
+				android:textColor="#ff00a4f5"
+				android:textSize="20sp"
+				android:text="13598765678 "
+				>
+		</TextView>
+	</LinearLayout>
+
+</LinearLayout>
