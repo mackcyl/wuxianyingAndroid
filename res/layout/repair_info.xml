@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/app_info_all_rl"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="#f7f7f7"
+    android:orientation="vertical" >
+    <include layout="@layout/include_main_topbar" />
+
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="top"
+            android:orientation="vertical" >
+
+        <View
+                android:layout_width="fill_parent"
+                android:layout_height="1dip"
+                android:background="#e9e8ea" />
+
+        <View
+                android:layout_width="fill_parent"
+                android:layout_height="15dip"
+                android:background="#f7f7f7" />
+
+        <View
+                android:layout_width="fill_parent"
+                android:layout_height="1dip"
+                android:background="#e9e8ea" />
+    </LinearLayout>
+
+
+    <ScrollView
+        android:id="@+id/all_view_sv"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:fadingEdge="none"
+        android:scrollbars="none" >
+
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+            <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:background="#ffffff"
+                    android:paddingTop="10dp"
+                    android:orientation="vertical" >
+                    >
+                <TextView
+                        android:id="@+id/repair_desc"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:textColor="#444444"
+                        android:paddingLeft="10dip"
+                        android:paddingRight="10dip"
+                        android:paddingBottom="10dip"
+                        android:text="我家阳台玻璃坏了,麻烦物业请一位师傅来看一下, 昨天被风刮的,现在家有人; 很着急;"
+                        android:textSize="20dip"
+                        />
+                <TextView
+                        android:id="@+id/repair_ctime"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:textColor="#999999"
+                        android:textSize="12dip"
+                        android:paddingRight="10dip"
+                        android:paddingBottom="10dip"
+                        android:gravity="right"
+                        android:text="2015-05-15 17:28"
+                        />
+            </LinearLayout>
+            <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="top"
+                    android:orientation="vertical" >
+
+                <View
+                        android:layout_width="fill_parent"
+                        android:layout_height="1dip"
+                        android:background="#e9e8ea" />
+
+                <View
+                        android:layout_width="fill_parent"
+                        android:layout_height="15dip"
+                        android:background="#f7f7f7" />
+
+                <View
+                        android:layout_width="fill_parent"
+                        android:layout_height="1dip"
+                        android:background="#e9e8ea" />
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/repair_info"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="12dip"
+                android:layout_marginTop="24dip"
+                android:gravity="top"
+                android:orientation="vertical" >
+
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+
+    <include
+        android:id="@+id/view_network_error"
+        layout="@layout/network_error"
+        android:visibility="gone" />
+
+</LinearLayout>

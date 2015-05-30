@@ -102,6 +102,10 @@
                 android:name="com.wuxianyingke.property.activities.RepairLogActivity"
                 android:configChanges="orientation|keyboardHidden|navigation"
                 android:screenOrientation="portrait" />
+        <activity
+                android:name="com.wuxianyingke.property.activities.RepairInfoActivity"
+                android:configChanges="orientation|keyboardHidden|navigation"
+                android:screenOrientation="portrait" />
 
 
         <activity

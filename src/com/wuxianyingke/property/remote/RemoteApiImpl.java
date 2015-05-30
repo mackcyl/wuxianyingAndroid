@@ -2974,4 +2974,55 @@ public class RemoteApiImpl implements RemoteApi {
 			return null;
 		}
 	}
+
+	@Override
+	public ArrayList<RepairPicture> getRepairPicture(Context c, long userId, long repairId, int propertyid) {
+		JSONObject lastest = new JSONObject();
+		JSONObject response = null;
+
+		try {
+			lastest.put("propertyid", propertyid);
+			lastest.put("userid", userId);
+			lastest.put("repairid", repairId);
+
+			byte[] httpPostBytes = lastest.toString().getBytes();
+			LogUtil.d("getRepairPicture", "param:" + new String(httpPostBytes));
+			LogUtil.d("getRepairPicture", "url:" + Constants.REPAIR_LIST_URL);
+
+			response = HttpComm.sendJSONToServer(
+					Constants.REPAIR_DETAIL_URL, lastest,
+					Constants.HTTP_SO_TIMEOUT);
+
+			LogUtil.d("getRepairPicture", "response " + response);
+			if (response == null) {
+				return null;
+			}
+			ArrayList<RepairPicture> ret = new ArrayList<RepairPicture>();
+
+			if (200 == response.getInt("code")) {
+				JSONArray jsArray = (JSONArray) response.get("repairpicturearray");
+				if(jsArray.length() > 0){
+
+					for (int i = 0; i < jsArray.length(); i++) {
+						JSONObject obj = (JSONObject) jsArray.get(i);
+						RepairPicture repairPicture = new RepairPicture();
+						repairPicture.repairPictureID = obj.getLong("RepairPictureID");
+						repairPicture.path = obj.getString("path");
+						repairPicture.description = obj.getString("Description");
+						ret.add(repairPicture);
+					}
+
+				}else{
+					return null;
+				}
+
+			}
+			return ret;
+
+		} catch (Exception ex) {
+			ex.printStackTrace();
+			LogUtil.d("MyTag", "error: " + ex.getMessage());
+			return null;
+		}
+	}
 }

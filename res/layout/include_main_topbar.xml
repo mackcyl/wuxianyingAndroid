@@ -38,11 +38,15 @@
 
  <Button
         android:id="@+id/topbar_button_right"
-        android:layout_width="40dip"
-        android:layout_height="40dip"
+        android:layout_width="wrap_content"
+        android:layout_height="50dip    "
         android:layout_alignParentRight="true"
         android:layout_centerVertical="true"
         android:layout_marginRight="8dip"
         android:paddingRight="5dip"  
-        android:visibility="gone" />
+        android:visibility="gone"
+        android:textColor="#97D6FD"
+        android:background="#fff"
+         android:text=""
+         />
 </RelativeLayout>

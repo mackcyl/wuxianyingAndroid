@@ -119,6 +119,9 @@ public class RepairListAdapter extends BaseAdapter {
 				intent.putExtra("repairLogStatusName", activity.status.repairStatusName);
 				intent.putExtra("repairLogStatusId", activity.status.repairStatusId);
 				intent.putExtra("repairLogStatusDesc", activity.status.repairStatusDescription);
+				intent.putExtra("repairDesc",activity.body);
+				intent.putExtra("repairCTime",activity.cTime);
+
 				intent.putExtra("repairId", activity.repairid);
 
 				mContext.startActivity(intent);

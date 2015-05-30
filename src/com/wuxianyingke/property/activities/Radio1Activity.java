@@ -349,10 +349,16 @@ public class Radio1Activity extends Activity
 				case 3:
 
 					LogUtil.d(TAG,"hello 3");
-					intent.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT
-							| Intent.FLAG_ACTIVITY_CLEAR_TOP);
-					intent.setClass(Radio1Activity.this, ReleaseGoodsActivity.class);
-					startActivity(intent);
+//					intent.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT
+//							| Intent.FLAG_ACTIVITY_CLEAR_TOP);
+//					intent.setClass(Radio1Activity.this, ReleaseGoodsActivity.class);
+//					startActivity(intent);
+
+					// TODO Auto-generated method stub
+					Uri uri = Uri.parse("tel:"
+							+ LocalStore.getInvitationCode(Radio1Activity.this).phoneNumber);
+					Intent it = new Intent(Intent.ACTION_CALL, uri);
+					startActivity(it);
 					break;
 				case 4:
 

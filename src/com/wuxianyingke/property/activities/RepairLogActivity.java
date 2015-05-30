@@ -3,6 +3,7 @@ package com.wuxianyingke.property.activities;
 import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.nfc.Tag;
 import android.os.Bundle;
@@ -30,9 +31,9 @@ public class RepairLogActivity extends Activity {
 	private ProgressDialog mWaitLoading = null;
 	private ProgressDialog mProgressDialog = null;
     private TextView topbar_txt;
-    private Button topbar_left;
+    private Button topbar_left ,topbar_right;
     private TextView repair_status_desc;
-    private String mRepairLogTitle,mRepairLogStatusDesc ,mRepairLogStatusName;
+    private String mRepairLogTitle,mRepairLogStatusDesc ,mRepairLogStatusName ,mRepairBody , mRepairCTime;
     private LinearLayout ScrollViewLinearLayout;
     private EditText input_message;
     private Button input_message_send;
@@ -130,8 +131,11 @@ public class RepairLogActivity extends Activity {
 		mRepairLogTitle = bundle.getString("repairLogTitle");
 		mRepairLogStatusDesc = bundle.getString("repairLogStatusDesc");
 		mRepairLogStatusName = bundle.getString("repairLogStatusName");
-//		repairLogStatusId = bundle.getInt("repairLogStatusId");
+		mRepairBody = bundle.getString("repairDesc");
+		mRepairCTime = bundle.getString("repairCTime");
+		repairLogStatusId = bundle.getInt("repairLogStatusId");
         rootid =(long) bundle.getLong("repairId");
+
         initWidgets();
 
 
@@ -157,23 +161,53 @@ public class RepairLogActivity extends Activity {
         topbar_txt = (TextView) findViewById(R.id.topbar_txt);
 
         topbar_left = (Button) findViewById(R.id.topbar_left);
-        topbar_txt.setText(mRepairLogTitle+" - 进度详情");
+        topbar_txt.setText(mRepairLogTitle + " - 进度详情");
         topbar_left.setVisibility(View.VISIBLE);
         topbar_left.setOnClickListener(new OnClickListener() {
-
 			@Override
 			public void onClick(View v) {
-				// TODO Auto-generated method stub
 				finish();
 			}
 		});
+
+		topbar_right = (Button) findViewById(R.id.topbar_button_right);
+		topbar_right.setVisibility(View.VISIBLE);
+		topbar_right.setText("报修详情");
+		topbar_right.setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+				Intent intent = new Intent();
+				intent.setClass(RepairLogActivity.this, RepairInfoActivity.class);
+				intent.putExtra("repairDesc", mRepairBody);
+				intent.putExtra("repairCTime", mRepairCTime);
+				intent.putExtra("repairId", rootid);
+				startActivity(intent);
+			}
+		});
+
+
 		repair_status_desc.setText(mRepairLogStatusDesc);
+
+		switch (repairLogStatusId){
+			case 1:
+				break;
+			case 2:
+				break;
+			case 3:
+			case 4:
+			case 5:
+			case 6:
+
+				break;
+			case 7:
+				break;
+		}
 
 		/*
         input_message = (EditText)findViewById(R.id.input_message);
         input_message_send = (Button)findViewById(R.id.input_message_send);
         input_message_send.setOnClickListener(new OnClickListener() {
-			
 			@Override
 			public void onClick(View arg0) {
 				// TODO Auto-generated method stub

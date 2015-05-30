@@ -373,7 +373,7 @@ public class Constants {
     public static final int MSG_GET_REPAIR_TYPE_LIST_FINSH = 284;
     public static final int MSG_GET_REPAIR_TYPE_LIST_ERROR = 285;
     public static final int MSG_GET_REPAIR_LIST_FINSH = 286;
-    public static final int MSG_GET_REPAIR_LIST_ERROR = 287;
     public static final int MSG_GET_REPAIR_DETAIL_FINSH = 288;
-    public static final int MSG_GET_REPAIR_DETAIL_ERROR = 289;
+    public static final int MSG_GET_REPAIR_PIC_FINSH = 300;
+    public static final int MSG_GET_REPAIR_PIC_LIST_FINSH = 301;
 }
