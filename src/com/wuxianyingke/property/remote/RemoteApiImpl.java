@@ -2723,9 +2723,6 @@ public class RemoteApiImpl implements RemoteApi {
 		JSONObject lastest = new JSONObject();
 		JSONObject response = null;
 
-
-
-
 		try {
 			lastest.put("propertyid", propertyid);
 			lastest.put("userid", userId);
@@ -2753,31 +2750,16 @@ public class RemoteApiImpl implements RemoteApi {
 				LogUtil.d("getRepairTypeList", "response " + response);
 
 
-				JSONArray jsArray = (JSONArray) response.get("messagearray");
-
+				JSONArray jsArray = (JSONArray) response.get("repairtypearray");
 				for (int i = 0; i < jsArray.length(); i++) {
 					JSONObject obj = (JSONObject) jsArray.get(i);
 					RepairType repairType = new RepairType();
-//					messageInfo.messageID = obj.getLong("MessageID");
-//					MessageTypeInfo messageTypeInfo = new MessageTypeInfo();
-//					JSONObject picObj = obj.getJSONObject("Type");
-//					messageTypeInfo.messageTypeID = picObj
-//							.getInt("MessageTypeID");
-//					messageTypeInfo.messageTypeName = picObj
-//							.getString("MessageTypeName");
-//					messageInfo.type = messageTypeInfo;
-//					messageInfo.userid = obj.getLong("UserID");
-//					messageInfo.toUserId = obj.getLong("ToUserID");
-//					messageInfo.header = obj.getString("Header");
-//					messageInfo.body = obj.getString("Body");
-//					messageInfo.isRead = obj.getInt("isRead");
-//					String time = obj.getString("CTime");
-//					if (!"".equals(time)) {
-//						long times = Long.valueOf(time);
-//						messageInfo.cTime = sdf.format(times);
-//					}
+					repairType.repairTypeId = obj.getLong("RepairTypeID");
+					repairType.shortCut = obj.getBoolean("ShortCut");
+					repairType.repairTypeName = obj.getString("RepairTypeName");
+					repairType.repairTypeDescription = obj.getString("RepairTypeDescription");
+					repairType.mayBePay = obj.getBoolean("MayBePay");
 					ret.add(repairType);
-
 				}
 			}
 			return ret;

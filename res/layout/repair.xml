@@ -12,11 +12,25 @@
             android:layout_height="1dip"
             android:background="#dbd7d4" />
 
+    <RadioGroup
+            android:id="@+id/repair_type_group"
+            android:layout_width="fill_parent"
+            android:layout_height="40dip"
+            android:background="#ffffff"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:paddingLeft="10dip"
+            android:paddingRight="10dip"
+            >
+
+
+
+    </RadioGroup>
     <com.wuxianyingke.property.views.IndicationDotList
             android:id="@+id/index_indication"
             android:background="#ffffff"
             android:layout_width="fill_parent"
-            android:layout_height="60dip"/>
+            android:layout_height="20dip"/>
 
     <LinearLayout
             android:layout_width="fill_parent"
@@ -26,6 +40,7 @@
             android:paddingRight="10dip"
             >
         <TextView
+                android:id="@+id/repair_type_desc"
                 android:layout_width="fill_parent"
                 android:layout_height="fill_parent"
                 android:background="#eeeeee"

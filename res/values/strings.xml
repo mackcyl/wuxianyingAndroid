@@ -354,4 +354,6 @@
     <string name="error_key">key验证无效！</string>
     <string name="error_other">未知错误，请稍后重试!错误码为</string>
     <string name="no_result">对不起，没有搜索到相关数据！</string>
+
+    <string name="scan_text">将二维码放入框内, 即可自动扫描</string>
 </resources>

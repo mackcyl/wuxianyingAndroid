@@ -5,6 +5,8 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
 
 import android.app.AlertDialog;
 import android.app.Dialog;
@@ -25,15 +27,10 @@ import android.os.Handler;
 import android.os.Message;
 import android.provider.MediaStore;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
-import android.widget.Button;
-import android.widget.EditText;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.RadioButton;
-import android.widget.TextView;
-import android.widget.Toast;
+import android.widget.*;
 import com.mantoto.property.R;
 import com.wuxianyingke.property.common.*;
 import com.wuxianyingke.property.remote.RemoteApi;
@@ -85,7 +82,10 @@ public class RepairActivity extends BaseActivityWithRadioGroup {
     public Drawable imgDw[] = new Drawable[5];// 记录编辑下载服务器来的图片
     public long deletePic[] = new long[5];// 记录删除服务器下载来的图片id
     private Button topbar_left;
-    private TextView topbar_txt,topbar_right;
+    private TextView topbar_txt,topbar_right,repairTypeDesc;
+
+    private RadioGroup mRadioGroup;
+    private RadioButton mRepairTypeRadio;
 
     private GetRepairTypeThread rtThread;
 
@@ -202,11 +202,7 @@ public class RepairActivity extends BaseActivityWithRadioGroup {
 
                 case Constants.MSG_GET_REPAIR_TYPE_LIST_FINSH:
                     if(rtThread != null && rtThread.getRepairTypeList() != null){
-                        mRepairTypeList = rtThread.getRepairTypeList() ;
-
-//                        IndexRepairLog = (TextView)findViewById(R.id.index_repair_log);
-//                        IndexRepairLog.setText(repairLogLast.displayContent);
-//                        LogUtil.d(TAG, "repairLogLast.displayContent = " + repairLogLast.displayContent);
+                        showRepairType(rtThread.getRepairTypeList());
                     }
 
                     break;
@@ -218,6 +214,7 @@ public class RepairActivity extends BaseActivityWithRadioGroup {
             super.handleMessage(msg);
         }
     };
+
 
     // 删除图片
     public void RecursionDeleteFile(File file) {
@@ -260,8 +257,12 @@ public class RepairActivity extends BaseActivityWithRadioGroup {
             getReleaseGoods();
         }
 
+        mRadioGroup = (RadioGroup) findViewById(R.id.repair_type_group);
+        repairTypeDesc = (TextView) findViewById(R.id.repair_type_desc);
         rtThread = new GetRepairTypeThread(this, mHandler);
         rtThread.start();
+
+
     }
 
     private void initWidgets() {
@@ -283,7 +284,6 @@ public class RepairActivity extends BaseActivityWithRadioGroup {
         topbar_right.setText("记录");
         topbar_right.setVisibility(View.VISIBLE);
         topbar_right.setOnClickListener(new OnClickListener() {
-
             @Override
             public void onClick(View v) {
                 // TODO Auto-generated method stub
@@ -292,6 +292,7 @@ public class RepairActivity extends BaseActivityWithRadioGroup {
                 }
             }
         });
+
         mFleaNameEditText = (EditText) findViewById(R.id.FleaNameEditText);
         mFleaContentEditText = (EditText) findViewById(R.id.FleaContentEditText);
         mFleaPicOneImageView = (ImageView) findViewById(R.id.FleaPicOneImageView);
@@ -307,7 +308,6 @@ public class RepairActivity extends BaseActivityWithRadioGroup {
         mFleaPicFourImageView.setVisibility(View.GONE);
         mFleaPicFiveImageView.setVisibility(View.GONE);
         mFleaPicImageView.setOnClickListener(new OnClickListener() {
-
             @Override
             public void onClick(View v) {
                 // TODO Auto-generated method stub
@@ -320,6 +320,7 @@ public class RepairActivity extends BaseActivityWithRadioGroup {
                 }
             }
         });
+
         mFleaPicOneImageView.setOnClickListener(new OnClickListener() {
 
             @Override
@@ -849,5 +850,69 @@ public class RepairActivity extends BaseActivityWithRadioGroup {
         // TODO Auto-generated method stub
 
     }
+
+
+
+    class RepairTypeItem
+    {
+        RadioButton repairTypeRadioBtn;
+    }
+
+    /**
+     android:layout_width="80dip"
+     android:layout_height="25dip"
+     android:background="@drawable/blue_repair_type_btn"
+     android:text="插卡"
+     android:textSize="15.0sp"
+     android:textColor="@color/repair_type_radio_text_color"
+     android:gravity="center"
+     android:layout_weight="0"
+     android:button="@null"
+     android:layout_marginRight="5dip"
+     * @param repairTypes
+     */
+    public void showRepairType(ArrayList<RepairType> repairTypes){
+        mRadioGroup.setVisibility(View.VISIBLE);
+        float density = getResources().getDisplayMetrics().density;
+        for(int i = 0; i < repairTypes.size(); i++)
+        {
+            RepairType info = repairTypes.get(i);
+            RadioButton repairTypeRadioBtn = (RadioButton) LayoutInflater.from(this).inflate(R.layout.repair_type_item, null);
+            repairTypeRadioBtn.setText(info.repairTypeName);
+//            FrameLayout.LayoutParams lytp = new FrameLayout.LayoutParams(80*2, 25*2);
+            RadioGroup.LayoutParams params_rb = new RadioGroup.LayoutParams(
+                    (int)(80*density),
+                    (int)(25*density));
+            int margin = (int)(2*density);
+            params_rb.setMargins(margin, 0, margin, 0);
+
+            repairTypeRadioBtn.setLayoutParams(params_rb);
+            repairTypeRadioBtn.setOnClickListener(new OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    // TODO Auto-generated method stub
+                    repairTypeDesc.setText(info.repairTypeDescription);
+                }
+            });
+
+            mRadioGroup.addView(repairTypeRadioBtn);
+
+            if(0 == i){
+                repairTypeDesc.setText(info.repairTypeDescription);
+                mRadioGroup.check(repairTypeRadioBtn.getId());
+            }
+        }
+
+    }
+
+//    private void addRepairType(String content) {
+//        View v = LayoutInflater.from(this).inflate(R.layout.repair_log_content1, null);
+//        RepairLogItem item = new RepairLogItem();
+//        item.repair_log_content = (TextView) v.findViewById(R.id.repair_log_content);
+//        item.repair_log_time = (TextView) v.findViewById(R.id.repair_log_time);
+//        item.repair_log_content.setText(content);
+//        item.repair_log_time.setText(time);
+//        ScrollViewLinearLayout.addView(v);
+//    }
 
 }

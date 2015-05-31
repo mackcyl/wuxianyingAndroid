@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RadioButton xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="25dip"
+    android:background="@drawable/blue_repair_type_btn"
+    android:text="插卡"
+    android:textSize="15.0sp"
+    android:textColor="@color/repair_type_radio_text_color"
+    android:gravity="center"
+    android:layout_weight="1"
+    android:button="@null"
+    android:layout_marginRight="5dip"
+    />

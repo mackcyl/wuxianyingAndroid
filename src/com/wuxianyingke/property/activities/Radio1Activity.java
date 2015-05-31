@@ -9,6 +9,7 @@ import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.net.Uri;
@@ -48,6 +49,8 @@ import com.wuxianyingke.property.views.MyGallery;
 public class Radio1Activity extends Activity
 {
 	static final String TAG = "Radio1Activity";
+
+	private final static int SCANNIN_GREQUEST_CODE = 1024;
 
 	private GridView mGridView;
 
@@ -178,7 +181,7 @@ public class Radio1Activity extends Activity
 
 		LogUtil.d(TAG, "city_name =" + LocalStore.cityInfo.city_name);
 		LogUtil.d(TAG, "temp1 =" + LocalStore.weatherInfo.temp1);
-		LogUtil.d(TAG,"fl1 ="+LocalStore.weatherInfo.fl1);
+		LogUtil.d(TAG,"fl1 什么情况? 中文问题="+LocalStore.weatherInfo.fl1);
 
 		DiZhiTextView.setText(LocalStore.cityInfo.city_name);
 		WenduTextView.setText(LocalStore.weatherInfo.temp1);
@@ -343,16 +346,14 @@ public class Radio1Activity extends Activity
 					LogUtil.d(TAG,"hello 2");
 					intent.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT
 							| Intent.FLAG_ACTIVITY_CLEAR_TOP);
-					intent.setClass(Radio1Activity.this, Radio4Activity.class);
-					startActivity(intent);
+					intent.setClass(Radio1Activity.this, QRcodeCaptureActivity.class);
+//					startActivity(intent);
+//					intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+					startActivityForResult(intent, SCANNIN_GREQUEST_CODE);
 					break;
 				case 3:
 
 					LogUtil.d(TAG,"hello 3");
-//					intent.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT
-//							| Intent.FLAG_ACTIVITY_CLEAR_TOP);
-//					intent.setClass(Radio1Activity.this, ReleaseGoodsActivity.class);
-//					startActivity(intent);
 
 					// TODO Auto-generated method stub
 					Uri uri = Uri.parse("tel:"
@@ -370,11 +371,24 @@ public class Radio1Activity extends Activity
 					startActivity(intent);
 					break;
 			}
-//			Toast.makeText(getApplicationContext(), position + "",
-//					Toast.LENGTH_SHORT).show();
 		}
 	}
 
+	@Override
+	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+		super.onActivityResult(requestCode, resultCode, data);
+		switch (requestCode) {
+			case SCANNIN_GREQUEST_CODE:
+				if(resultCode == RESULT_OK){
+//					Bundle bundle = data.getExtras();
+//					//显示扫描到的内容
+//					mTextView.setText(bundle.getString("result"));
+//					//显示
+//					mImageView.setImageBitmap((Bitmap) data.getParcelableExtra("bitmap"));
+				}
+				break;
+		}
+	}
 	/**
 	 * 定位SDK监听函数
 	 */

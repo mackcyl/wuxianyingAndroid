@@ -70,10 +70,11 @@
 					android:gravity="center" >
 
 					   <Button
-						android:id="@+id/input_message_send"
+						android:id="@+id/repair_handle"
 						android:layout_width="150dip"
 						android:layout_height="46dip"
-						   android:layout_marginRight="5dp"
+						android:layout_marginRight="5dp"
+						android:visibility="gone"
 						android:background="@drawable/blue_btn_normal"
 						android:text="撤回"
 						android:textColor="@drawable/blue_btn_txt_normal"

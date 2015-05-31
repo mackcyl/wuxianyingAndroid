@@ -5,10 +5,10 @@ import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.nfc.Tag;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -18,20 +18,16 @@ import com.wuxianyingke.property.common.Constants;
 import com.wuxianyingke.property.common.LocalStore;
 import com.wuxianyingke.property.common.LogUtil;
 import com.wuxianyingke.property.remote.RemoteApi.RepairLog;
-import com.wuxianyingke.property.remote.RemoteApiImpl;
 import com.wuxianyingke.property.threads.RepairLogThread;
 
-import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.List;
-
 
 public class RepairLogActivity extends Activity {
 
 	private ProgressDialog mWaitLoading = null;
 	private ProgressDialog mProgressDialog = null;
     private TextView topbar_txt;
-    private Button topbar_left ,topbar_right;
+    private Button topbar_left ,topbar_right,repair_handle;
     private TextView repair_status_desc;
     private String mRepairLogTitle,mRepairLogStatusDesc ,mRepairLogStatusName ,mRepairBody , mRepairCTime;
     private LinearLayout ScrollViewLinearLayout;
@@ -135,8 +131,8 @@ public class RepairLogActivity extends Activity {
 		mRepairCTime = bundle.getString("repairCTime");
 		repairLogStatusId = bundle.getInt("repairLogStatusId");
         rootid =(long) bundle.getLong("repairId");
-
-        initWidgets();
+//		Log.d("repairLogStatusId", "repairLogStatusId =" + repairLogStatusId);
+		initWidgets();
 
 
         mThread = new RepairLogThread(RepairLogActivity.this, mHandler, propertyid, userid, rootid);
@@ -188,19 +184,25 @@ public class RepairLogActivity extends Activity {
 
 
 		repair_status_desc.setText(mRepairLogStatusDesc);
+		repair_handle = (Button)findViewById(R.id.repair_handle);
 
+		LogUtil.d("RepairLogAction",""+repairLogStatusId);
 		switch (repairLogStatusId){
 			case 1:
-				break;
 			case 2:
+				repair_handle.setVisibility(View.VISIBLE);
 				break;
 			case 3:
 			case 4:
 			case 5:
 			case 6:
-
+				repair_handle.setVisibility(View.VISIBLE);
+				repair_handle.setBackgroundResource(R.drawable.disable_btn_normal);
+				repair_handle.setEnabled(false);
 				break;
 			case 7:
+
+				repair_handle.setEnabled(false);
 				break;
 		}
 
