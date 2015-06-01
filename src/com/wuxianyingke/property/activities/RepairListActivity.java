@@ -307,7 +307,6 @@ public class RepairListActivity extends Activity {
 		{
 			 
 			mLogAdapter = new RepairListAdapter(this, list);
-			LogUtil.d("MyTag","1-mItemSum mPageNum == 1  mLogAdapter.getCount()="+mLogAdapter.getCount());
 			if (mProgressDialog != null)
 			{
 				mProgressDialog.dismiss();

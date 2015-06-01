@@ -22,9 +22,6 @@
             android:paddingLeft="10dip"
             android:paddingRight="10dip"
             >
-
-
-
     </RadioGroup>
     <com.wuxianyingke.property.views.IndicationDotList
             android:id="@+id/index_indication"
@@ -34,7 +31,7 @@
 
     <LinearLayout
             android:layout_width="fill_parent"
-            android:layout_height="100dip"
+            android:layout_height="80dip"
             android:background="#ffffff"
             android:paddingLeft="10dip"
             android:paddingRight="10dip"
@@ -63,7 +60,7 @@
                 android:paddingBottom="20dip"
                 android:paddingLeft="10dip"
                 android:paddingRight="10dip"
-                android:paddingTop="10dip" >
+                android:paddingTop="5dip" >
             <LinearLayout
                     android:layout_width="fill_parent"
                     android:layout_height="@dimen/more_item_height"
@@ -130,7 +127,7 @@
                 <EditText android:gravity="top"
                           android:id="@+id/FleaContentEditText"
                           android:layout_width="fill_parent"
-                          android:layout_height="300dip"
+                          android:layout_height="200dip"
                           android:hint="请输入文字备注描述"
                           android:textColor="#545454"
                           android:background="@drawable/style_edittext_white"
@@ -138,7 +135,24 @@
             </LinearLayout>
 
 
+            <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center" >
 
+                <Button
+                        android:id="@+id/create_repair"
+                        android:layout_width="150dip"
+                        android:layout_height="46dip"
+                        android:layout_marginRight="5dp"
+                        android:background="@drawable/blue_btn_normal"
+                        android:text="提交"
+                        android:textColor="@drawable/blue_btn_txt_normal"
+                        android:textSize="@dimen/button_text_size" />
+
+
+            </LinearLayout>
+            
             <include
                     android:id="@+id/view_network_error"
                     android:layout_centerInParent="true"

@@ -58,7 +58,7 @@ public class RepairActivity extends BaseActivityWithRadioGroup {
     private String mErrorInfo = "";
     private String desc = "";
     private SharedPreferences saving;
-    private int propertyid;
+    private int propertyid,repairTypeId;
     public EditText mFleaNameEditText, mFleaContentEditText;
     public ImageView mFleaPicImageView, mFleaPicOneImageView,
             mFleaPicTwoImageView, mFleaPicThreeImageView,
@@ -81,8 +81,8 @@ public class RepairActivity extends BaseActivityWithRadioGroup {
     public String picFilePath[] = new String[5];// 记录新增图片地址
     public Drawable imgDw[] = new Drawable[5];// 记录编辑下载服务器来的图片
     public long deletePic[] = new long[5];// 记录删除服务器下载来的图片id
-    private Button topbar_left;
-    private TextView topbar_txt,topbar_right,repairTypeDesc;
+    private Button topbar_left,topbar_right ,submit_btn;
+    private TextView topbar_txt,repairTypeDesc;
 
     private RadioGroup mRadioGroup;
     private RadioButton mRepairTypeRadio;
@@ -109,21 +109,38 @@ public class RepairActivity extends BaseActivityWithRadioGroup {
                 case 1:
                     Toast.makeText(RepairActivity.this, "发布成功",
                             Toast.LENGTH_SHORT).show();
-
                     RecursionDeleteFile(PHOTO_DIR);
 
-                    Intent intent = new Intent();
-                    if (mFleaEdit) {
-                        intent.setClass(RepairActivity.this,
-                                ProductListActivity.class);
-                    }
+                    dialog = new AlertDialog.Builder(RepairActivity.this).create();
+                    LayoutInflater inflater = LayoutInflater.from(RepairActivity.this);
+                    View backupExpandHeader = inflater.inflate(R.layout.create_repair_dialog, null);
 
-                    else {
-                        intent.setClass(RepairActivity.this,
-                                ProductListActivity.class);
-                    }
-                    startActivity(intent);
-                    finish();
+                    LinearLayout.LayoutParams params_rb = new LinearLayout.LayoutParams(   LinearLayout.LayoutParams.WRAP_CONTENT,
+                            LinearLayout.LayoutParams.WRAP_CONTENT );
+//                            (int)(25*density));
+//                    int margin = (int)(2*density);
+//                    params_rb.setMargins(margin, 0, margin, 0);
+
+                    backupExpandHeader.setLayoutParams(params_rb);
+                    TextView popTitle = (TextView) backupExpandHeader.findViewById(R.id.popDialogTitle);
+                    popTitle.setText("报修发布成功");
+                    TextView popInfo = (TextView) backupExpandHeader.findViewById(R.id.popDialogInfo);
+                    popInfo.setText(desc);
+                    Button okButton = (Button) backupExpandHeader.findViewById(R.id.ButtonOK);
+
+                    okButton.setOnClickListener(new OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            Intent intent = new Intent();
+                            intent.setClass(RepairActivity.this,RepairListActivity.class);
+                            startActivity(intent);
+                            finish();
+                        }
+                    });
+                    dialog.show();
+                    dialog.setContentView(backupExpandHeader);
+
+
                     break;
 
                 // 通讯错误
@@ -253,9 +270,6 @@ public class RepairActivity extends BaseActivityWithRadioGroup {
         File f = new File("/sdcard/wxyk/zip/pic.zip");
         RecursionDeleteFile(f);
         initWidgets();
-        if (mFleaEdit) {
-            getReleaseGoods();
-        }
 
         mRadioGroup = (RadioGroup) findViewById(R.id.repair_type_group);
         repairTypeDesc = (TextView) findViewById(R.id.repair_type_desc);
@@ -280,27 +294,37 @@ public class RepairActivity extends BaseActivityWithRadioGroup {
         });
 
 
-        topbar_right = (TextView) findViewById(R.id.topbar_right);
+        topbar_right = (Button) findViewById(R.id.topbar_button_right);
         topbar_right.setText("记录");
         topbar_right.setVisibility(View.VISIBLE);
+
         topbar_right.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
                 // TODO Auto-generated method stub
                 if (validateFlea()) {
-                    sendFlea();
+                    sendRepair();
                 }
             }
         });
 
-        mFleaNameEditText = (EditText) findViewById(R.id.FleaNameEditText);
-        mFleaContentEditText = (EditText) findViewById(R.id.FleaContentEditText);
+        submit_btn = (Button) findViewById(R.id.create_repair);
+        submit_btn.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (validateFlea()) {
+                    sendRepair();
+                }
+            }
+        });
+
+        mFleaNameEditText = (EditText) findViewById(R.id.FleaNameEditText);  //联系方式
+        mFleaContentEditText = (EditText) findViewById(R.id.FleaContentEditText); //文字描述
         mFleaPicOneImageView = (ImageView) findViewById(R.id.FleaPicOneImageView);
         mFleaPicTwoImageView = (ImageView) findViewById(R.id.FleaPicTwoImageView);
         mFleaPicThreeImageView = (ImageView) findViewById(R.id.FleaPicThreeImageView);
         mFleaPicFourImageView = (ImageView) findViewById(R.id.FleaPicFourImageView);
         mFleaPicFiveImageView = (ImageView) findViewById(R.id.FleaPicFiveImageView);
-        mIsVisitorTextView = (TextView) findViewById(R.id.IsVisitorTextView);
         mFleaPicImageView = (ImageView) findViewById(R.id.FleaPicImageView);
         mFleaPicOneImageView.setVisibility(View.GONE);
         mFleaPicTwoImageView.setVisibility(View.GONE);
@@ -322,7 +346,6 @@ public class RepairActivity extends BaseActivityWithRadioGroup {
         });
 
         mFleaPicOneImageView.setOnClickListener(new OnClickListener() {
-
             @Override
             public void onClick(View v) {
                 // TODO Auto-generated method stub
@@ -378,11 +401,11 @@ public class RepairActivity extends BaseActivityWithRadioGroup {
     public boolean validateFlea() {
         Log.d("MyTag", "mFleaNameEditText=" + mFleaNameEditText);
         if (Util.isEmpty(mFleaNameEditText)) {
-            Toast.makeText(RepairActivity.this, "商品名称不能为空",
+            Toast.makeText(RepairActivity.this, "联系方式不能为空",
                     Toast.LENGTH_SHORT).show();
             return false;
         } else if (Util.isEmpty(mFleaContentEditText)) {
-            Toast.makeText(RepairActivity.this, "商品内容不能为空",
+            Toast.makeText(RepairActivity.this, "报修内容不能为空",
                     Toast.LENGTH_SHORT).show();
             return false;
         }
@@ -398,9 +421,8 @@ public class RepairActivity extends BaseActivityWithRadioGroup {
     }
 
     // 发送数据
-    public void sendFlea() {
+    public void sendRepair() {
         showDialog();
-
         File f = new File("/sdcard/wxyk/zip/pic.zip");
         if (f.exists()) {
             f.delete();
@@ -416,55 +438,29 @@ public class RepairActivity extends BaseActivityWithRadioGroup {
             // TODO Auto-generated catch block
             e.printStackTrace();
         }
+
+        repairTypeId = mRadioGroup.getCheckedRadioButtonId();
+
+        Log.d("MyTag", "repairType ="+repairTypeId);
+
+//        View radioButton = mRadioGroup.findViewById(radioButtonID);
+//        repairTypeId = mRadioGroup.indexOfChild(radioButton);
         Thread loginThread = new Thread() {
             public void run() {
                 RemoteApiImpl remote = new RemoteApiImpl();
                 NetInfo netInfo = null;
-                if (mFleaEdit) {
-                    String deletelist = "";
-                    if (deletePic[0] != 0) {
-                        deletelist = String.valueOf(deletePic[0]);
-                    }
-                    if (deletePic[1] != 0) {
-                        deletelist = String.valueOf(deletePic[0]) + ","
-                                + String.valueOf(deletePic[1]);
-                    }
-                    if (deletePic[2] != 0) {
-                        deletelist = String.valueOf(deletePic[0]) + ","
-                                + String.valueOf(deletePic[1]) + ","
-                                + String.valueOf(deletePic[2]);
-                    }
-                    if (deletePic[3] != 0) {
-                        deletelist = String.valueOf(deletePic[0]) + ","
-                                + String.valueOf(deletePic[1]) + ","
-                                + String.valueOf(deletePic[2]) + ","
-                                + String.valueOf(deletePic[3]);
-                    }
-                    if (deletePic[4] != 0) {
-                        deletelist = String.valueOf(deletePic[0]) + ","
-                                + String.valueOf(deletePic[1]) + ","
-                                + String.valueOf(deletePic[2]) + ","
-                                + String.valueOf(deletePic[3]) + ","
-                                + String.valueOf(deletePic[4]);
-                    }
-                    Log.d("MyTag", "deletelist=" + deletelist);
-                    netInfo = remote.editFleaNew(fleaid, propertyid,
-                            saving.getLong(LocalStore.USER_ID, 0),
-                            mFleaNameEditText.getText().toString().trim(),
-                            mFleaContentEditText.getText().toString().trim(),
-                            deletelist, file);
-                } else {
-                    netInfo = remote.sendFleaNew(propertyid,
-                            saving.getLong(LocalStore.USER_ID, 0),
-                            mFleaNameEditText.getText().toString().trim(),
-                            mFleaContentEditText.getText().toString().trim(),
-                            file);
-                }
+                netInfo = remote.sendRepairNew(propertyid,
+                        saving.getLong(LocalStore.USER_ID, 0),
+                        repairTypeId,
+                        mFleaNameEditText.getText().toString().trim(),
+                        mFleaContentEditText.getText().toString().trim(),
+                        file);
                 Message msg = new Message();
                 if (netInfo == null) {
                     msg.what = 4;
                 } else if (200 == netInfo.code) {
                     msg.what = 1;
+                    desc = netInfo.desc;
                 } else {
                     msg.what = 0;
                     mErrorInfo = netInfo.desc;
@@ -797,49 +793,6 @@ public class RepairActivity extends BaseActivityWithRadioGroup {
         builder.create().show();
     }
 
-    // 编辑
-    public void getReleaseGoods() {
-        showDialog();
-        Thread loginThread = new Thread() {
-            public void run() {
-                RemoteApiImpl remote = new RemoteApiImpl();
-                mFleaContent = remote.getFleaContent(propertyid, fleaid);
-
-                Message msg = new Message();
-                if (mFleaContent == null) {
-                    msg.what = 201;
-                } else if (200 == mFleaContent.netInfo.code) {
-                    mProductList = mFleaContent.fleaPictureArray;
-                    int count = mFleaContent.fleaPictureArray.size();
-                    for (int i = 0; i < count; ++i) {
-                        FleaPicture pic = mProductList.get(i);
-                        if (pic.path != null) {
-                            Drawable dw = null;
-                            try {
-                                dw = Util.getDrawableFromCache(
-                                        RepairActivity.this,
-                                        pic.path);
-                            } catch (IOException e) {
-                                e.printStackTrace();
-                            }
-                            if (dw != null) {
-                                pic.imgDw = dw;
-                                imgDw[i] = dw;
-                            }
-                        }
-                    }
-
-                    msg.what = 200;
-                } else {
-                    msg.what = 500;
-                    mErrorInfo = mFleaContent.netInfo.desc;
-                }
-                mHandler.sendMessage(msg);
-            }
-        };
-        loginThread.start();
-    }
-
     @Override
     protected void onStart() {
         super.onStart();
@@ -876,8 +829,10 @@ public class RepairActivity extends BaseActivityWithRadioGroup {
         float density = getResources().getDisplayMetrics().density;
         for(int i = 0; i < repairTypes.size(); i++)
         {
-            RepairType info = repairTypes.get(i);
+            final RepairType info = repairTypes.get(i);
             RadioButton repairTypeRadioBtn = (RadioButton) LayoutInflater.from(this).inflate(R.layout.repair_type_item, null);
+
+            repairTypeRadioBtn.setId((int)info.repairTypeId);
             repairTypeRadioBtn.setText(info.repairTypeName);
 //            FrameLayout.LayoutParams lytp = new FrameLayout.LayoutParams(80*2, 25*2);
             RadioGroup.LayoutParams params_rb = new RadioGroup.LayoutParams(
@@ -896,7 +851,6 @@ public class RepairActivity extends BaseActivityWithRadioGroup {
             });
 
             mRadioGroup.addView(repairTypeRadioBtn);
-
             if(0 == i){
                 repairTypeDesc.setText(info.repairTypeDescription);
                 mRadioGroup.check(repairTypeRadioBtn.getId());

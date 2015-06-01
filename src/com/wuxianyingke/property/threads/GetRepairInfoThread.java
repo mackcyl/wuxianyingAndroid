@@ -62,8 +62,10 @@ public class GetRepairInfoThread extends Thread {
 				if (mRepairImgItem.get(i).path != null) {
 					Drawable dw = null;
 					try {
+//						dw = Util.getDrawableFromCache(mContext,
+//								mRepairImgItem.get(i).path);
 						dw = Util.getDrawableFromCache(mContext,
-								mRepairImgItem.get(i).path);
+								"http://dev.51wuye.cn/torepairImage.aspx?imageid=4");
 					} catch (IOException e) {
 						e.printStackTrace();
 					}

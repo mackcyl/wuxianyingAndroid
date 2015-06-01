@@ -10,7 +10,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
-import android.hardware.display.DisplayManager;
+//import android.hardware.display.DisplayManager;
 import android.net.Uri;
 import android.opengl.Visibility;
 import android.os.Bundle;

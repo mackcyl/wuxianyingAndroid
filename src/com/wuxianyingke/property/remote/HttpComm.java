@@ -306,4 +306,57 @@ public class HttpComm
 		}
 		return retJsonObject;
 	}
+
+
+	@SuppressWarnings("deprecation")
+	public static JSONObject addRepirAndUploadFile(
+			String httpaction ,
+			int propertyid,
+			long userid,
+			int typeid,
+			String telnumber,
+			String description,
+			File f,
+			int timeout
+	){
+		String url = Constants.URL + httpaction;
+		JSONObject retJsonObject=null;
+		HttpClient client = new HttpClient();
+		MultipartPostMethod method = new MultipartPostMethod(url);
+		try {
+			Log.v("MyTag",f.getName());
+//			method.addParameter("fleaid",fleaid+"");
+			method.addParameter("propertyid",propertyid+"");
+			method.addParameter("userid",userid+"");
+			method.addParameter("typeid",typeid+"");
+			method.addParameter("telnumber",URLEncoder.encode(telnumber, "UTF-8"));
+			method.addParameter("body",URLEncoder.encode(description, "UTF-8"));
+//			method.addParameter("deletelist",deletelist);
+
+			FilePart part1 = new FilePart("pictures",f);
+			method.addPart(part1);
+			client.setConnectionTimeout(timeout);
+			client.setTimeout(timeout);
+			client.setHttpConnectionFactoryTimeout(timeout);
+			client.executeMethod(method);
+			if (method.getStatusCode() == HttpStatus.SC_OK) {
+				StringBuilder builder = new StringBuilder();
+				InputStreamReader is = new InputStreamReader(method.getResponseBodyAsStream());
+				BufferedReader bufferedReader2 = new BufferedReader(is);
+				for (String s = bufferedReader2.readLine(); s != null; s = bufferedReader2.readLine())
+				{
+					builder.append(s);
+				}
+				LogUtil.d("MyTag", "builder.toString() " + builder.toString());
+				retJsonObject = new JSONObject(builder.toString());
+			}
+		} catch (Exception e) {
+			LogUtil.d("MyTag", ">>>>>> error: " + e.getMessage());
+			e.printStackTrace();
+			return null;
+		}finally{
+			method.releaseConnection();
+		}
+		return retJsonObject;
+	}
 }

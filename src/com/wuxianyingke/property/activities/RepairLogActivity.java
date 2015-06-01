@@ -129,9 +129,9 @@ public class RepairLogActivity extends Activity {
 		mRepairLogStatusName = bundle.getString("repairLogStatusName");
 		mRepairBody = bundle.getString("repairDesc");
 		mRepairCTime = bundle.getString("repairCTime");
-		repairLogStatusId = bundle.getInt("repairLogStatusId");
+		repairLogStatusId = (int) bundle.getLong("repairLogStatusId");
         rootid =(long) bundle.getLong("repairId");
-//		Log.d("repairLogStatusId", "repairLogStatusId =" + repairLogStatusId);
+		Log.d("repairLogStatusId", "repairLogStatusId =" + repairLogStatusId);
 		initWidgets();
 
 
