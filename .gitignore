@@ -25,3 +25,7 @@ src/com/wuxianyingke/property/activities/CanyinDetailOwnActivity.java
 
 .idea/uiDesigner.xml
 
+
+*.class
+
+*.apk
