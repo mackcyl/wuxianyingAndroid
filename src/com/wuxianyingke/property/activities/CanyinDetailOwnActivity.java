@@ -345,7 +345,7 @@ public class CanyinDetailOwnActivity extends Activity   implements OnClickListen
 		dizhiTv= (TextView) findViewById(R.id.dizhiTv) ;
 		miaoshuTv= (TextView) findViewById(R.id.miaoshuTv) ;
 		dianmianLayout= (LinearLayout) findViewById(R.id.dianmianLayout) ;
-		img_ll= (LinearLayout) findViewById(R.id.img_ll) ;
+		img_ll= (LinearLayout) findViewById(R.id.huodonglist) ;
 		shangpinglist= (LinearLayout) findViewById(R.id.shangpinglist) ;
 		huodonglist= (LinearLayout) findViewById(R.id.huodonglist) ;
 		peisongImg = (ImageView) findViewById(R.id.peisongImg) ;
