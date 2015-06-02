@@ -344,11 +344,8 @@ public class Radio1Activity extends Activity
 					break;
 				case 2:
 					LogUtil.d(TAG,"hello 2");
-					intent.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT
-							| Intent.FLAG_ACTIVITY_CLEAR_TOP);
-					intent.setClass(Radio1Activity.this, QRcodeCaptureActivity.class);
-//					startActivity(intent);
-//					intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+					intent.setClass(Radio1Activity.this, MipcaActivityCapture.class);
+					intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
 					startActivityForResult(intent, SCANNIN_GREQUEST_CODE);
 					break;
 				case 3:

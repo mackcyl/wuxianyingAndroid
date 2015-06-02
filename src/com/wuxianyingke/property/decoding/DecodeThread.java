@@ -14,14 +14,14 @@
  * limitations under the License.
  */
 
-package com.wuxianyingke.zxing.decoding;
+package com.wuxianyingke.property.decoding;
 
 import android.os.Handler;
 import android.os.Looper;
 import com.google.zxing.BarcodeFormat;
 import com.google.zxing.DecodeHintType;
 import com.google.zxing.ResultPointCallback;
-import com.wuxianyingke.property.activities.QRcodeCaptureActivity;
+import com.wuxianyingke.property.activities.MipcaActivityCapture;
 
 import java.util.Hashtable;
 import java.util.Vector;
@@ -29,17 +29,17 @@ import java.util.concurrent.CountDownLatch;
 
 /**
  * This thread does all the heavy lifting of decoding the images.
- * ½âÂëÏß³Ì
+ * ï¿½ï¿½ï¿½ï¿½ï¿½ß³ï¿½
  */
 final class DecodeThread extends Thread {
 
   public static final String BARCODE_BITMAP = "barcode_bitmap";
-  private final QRcodeCaptureActivity activity;
+  private final MipcaActivityCapture activity;
   private final Hashtable<DecodeHintType, Object> hints;
   private Handler handler;
   private final CountDownLatch handlerInitLatch;
 
-  DecodeThread(QRcodeCaptureActivity activity,
+  DecodeThread(MipcaActivityCapture activity,
                Vector<BarcodeFormat> decodeFormats,
                String characterSet,
                ResultPointCallback resultPointCallback) {

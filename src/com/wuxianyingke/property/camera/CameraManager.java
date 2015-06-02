@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.wuxianyingke.zxing.camera;
+package com.wuxianyingke.property.camera;
 
 import android.content.Context;
 import android.graphics.PixelFormat;
@@ -130,8 +130,8 @@ public final class CameraManager {
       configManager.setDesiredCameraParameters(camera);
 
       //FIXME
-      //     SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-      //是否使用前灯
+ //     SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+      //�Ƿ�ʹ��ǰ��
 //      if (prefs.getBoolean(PreferencesActivity.KEY_FRONT_LIGHT, false)) {
 //        FlashlightManager.enableFlashlight();
 //      }
@@ -302,25 +302,25 @@ public final class CameraManager {
       // This is the standard Android format which all devices are REQUIRED to support.
       // In theory, it's the only one we should ever care about.
       case PixelFormat.YCbCr_420_SP:
-        // This format has never been seen in the wild, but is compatible as we only care
-        // about the Y channel, so allow it.
+      // This format has never been seen in the wild, but is compatible as we only care
+      // about the Y channel, so allow it.
       case PixelFormat.YCbCr_422_SP:
         return new PlanarYUVLuminanceSource(data, width, height, rect.left, rect.top,
-                rect.width(), rect.height());
+            rect.width(), rect.height());
       default:
         // The Samsung Moment incorrectly uses this variant instead of the 'sp' version.
         // Fortunately, it too has all the Y data up front, so we can read it.
         if ("yuv420p".equals(previewFormatString)) {
           return new PlanarYUVLuminanceSource(data, width, height, rect.left, rect.top,
-                  rect.width(), rect.height());
+            rect.width(), rect.height());
         }
     }
     throw new IllegalArgumentException("Unsupported picture format: " +
-            previewFormat + '/' + previewFormatString);
+        previewFormat + '/' + previewFormatString);
   }
 
-  public Context getContext() {
-    return context;
-  }
+	public Context getContext() {
+		return context;
+	}
 
 }

@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.wuxianyingke.zxing.decoding;
+package com.wuxianyingke.property.decoding;
 
 import android.app.Activity;
 import android.content.DialogInterface;

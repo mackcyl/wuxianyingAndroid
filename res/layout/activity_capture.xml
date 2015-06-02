@@ -13,12 +13,14 @@
             android:layout_height="fill_parent"
             android:layout_gravity="center" />
 
-        <com.wuxianyingke.zxing.view.ViewfinderView
-                android:id="@+id/viewfinder_view"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
 
-        <include layout="@layout/include_main_topbar" />
+        <com.wuxianyingke.property.view.ViewfinderView
+                android:id="@+id/viewfinder_view"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"/>
+
+        <include layout="@layout/activity_title" />
+
     </RelativeLayout>
 
 </FrameLayout>

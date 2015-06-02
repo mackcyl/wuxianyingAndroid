@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.wuxianyingke.zxing.decoding;
+package com.wuxianyingke.property.decoding;
 
 /**
  * This class provides the constants to use when sending an Intent to Barcode Scanner.
@@ -22,7 +22,6 @@ package com.wuxianyingke.zxing.decoding;
  */
 public final class Intents {
   private Intents() {
-
   }
 
   public static final class Scan {

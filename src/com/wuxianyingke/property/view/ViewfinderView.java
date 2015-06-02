@@ -14,16 +14,17 @@
  * limitations under the License.
  */
 
-package com.wuxianyingke.zxing.view;
+package com.wuxianyingke.property.view;
 
 import android.content.Context;
 import android.content.res.Resources;
 import android.graphics.*;
+import android.graphics.drawable.BitmapDrawable;
 import android.util.AttributeSet;
 import android.view.View;
 import com.google.zxing.ResultPoint;
 import com.mantoto.property.R;
-import com.wuxianyingke.zxing.camera.CameraManager;
+import com.wuxianyingke.property.camera.CameraManager;
 
 import java.util.Collection;
 import java.util.HashSet;
@@ -32,87 +33,86 @@ import java.util.HashSet;
  * This view is overlaid on top of the camera preview. It adds the viewfinder
  * rectangle and partial transparency outside it, as well as the laser scanner
  * animation and result points.
- *
+ * 
  */
 public final class ViewfinderView extends View {
-	private static final String TAG = "log";
 	/**
-	 * 刷新界面的时间
+	 * ˢ�½����ʱ��
 	 */
 	private static final long ANIMATION_DELAY = 10L;
 	private static final int OPAQUE = 0xFF;
 
 	/**
-	 * 四个绿色边角对应的长度
+	 * �ĸ���ɫ�߽Ƕ�Ӧ�ĳ���
 	 */
 	private int ScreenRate;
-
+	
 	/**
-	 * 四个绿色边角对应的宽度
+	 * �ĸ���ɫ�߽Ƕ�Ӧ�Ŀ��
 	 */
-	private static final int CORNER_WIDTH = 10;
+	private static final int CORNER_WIDTH = 5;
 	/**
-	 * 扫描框中的中间线的宽度
+	 * ɨ����е��м��ߵĿ��
 	 */
 	private static final int MIDDLE_LINE_WIDTH = 6;
-
+	
 	/**
-	 * 扫描框中的中间线的与扫描框左右的间隙
+	 * ɨ����е��м��ߵ���ɨ������ҵļ�϶
 	 */
 	private static final int MIDDLE_LINE_PADDING = 5;
-
+	
 	/**
-	 * 中间那条线每次刷新移动的距离
+	 * �м�������ÿ��ˢ���ƶ��ľ���
 	 */
 	private static final int SPEEN_DISTANCE = 5;
-
+	
 	/**
-	 * 手机的屏幕密度
+	 * �ֻ����Ļ�ܶ�
 	 */
 	private static float density;
 	/**
-	 * 字体大小
+	 * �����С
 	 */
 	private static final int TEXT_SIZE = 16;
 	/**
-	 * 字体距离扫描框下面的距离
+	 * �������ɨ�������ľ���
 	 */
 	private static final int TEXT_PADDING_TOP = 30;
-
+	
 	/**
-	 * 画笔对象的引用
+	 * ���ʶ��������
 	 */
 	private Paint paint;
-
+	
 	/**
-	 * 中间滑动线的最顶端位置
+	 * �м们���ߵ����λ��
 	 */
 	private int slideTop;
-
+	
 	/**
-	 * 中间滑动线的最底端位置
+	 * �м们���ߵ���׶�λ��
 	 */
 	private int slideBottom;
-
+	
 	/**
-	 * 将扫描的二维码拍下来，这里没有这个功能，暂时不考虑
+	 * ��ɨ��Ķ�ά��������������û��������ܣ���ʱ������
 	 */
 	private Bitmap resultBitmap;
 	private final int maskColor;
 	private final int resultColor;
-
+	
 	private final int resultPointColor;
 	private Collection<ResultPoint> possibleResultPoints;
 	private Collection<ResultPoint> lastPossibleResultPoints;
 
 	boolean isFirst;
-
+	
 	public ViewfinderView(Context context, AttributeSet attrs) {
 		super(context, attrs);
-
+		
 		density = context.getResources().getDisplayMetrics().density;
-		//将像素转换成dp
-		ScreenRate = (int)(20 * density);
+		//������ת����dp
+		ScreenRate = (int)(15 * density);
 
 		paint = new Paint();
 		Resources resources = getResources();
@@ -125,34 +125,34 @@ public final class ViewfinderView extends View {
 
 	@Override
 	public void onDraw(Canvas canvas) {
-		//中间的扫描框，你要修改扫描框的大小，去CameraManager里面修改
+		//�м��ɨ�����Ҫ�޸�ɨ���Ĵ�С��ȥCameraManager�����޸�
 		Rect frame = CameraManager.get().getFramingRect();
 		if (frame == null) {
 			return;
 		}
-
-		//初始化中间线滑动的最上边和最下边
+		
+		//��ʼ���м��߻��������ϱߺ����±�
 		if(!isFirst){
 			isFirst = true;
 			slideTop = frame.top;
 			slideBottom = frame.bottom;
 		}
-
-		//获取屏幕的宽和高
+		
+		//��ȡ��Ļ�Ŀ�͸�
 		int width = canvas.getWidth();
 		int height = canvas.getHeight();
 
 		paint.setColor(resultBitmap != null ? resultColor : maskColor);
-
-		//画出扫描框外面的阴影部分，共四个部分，扫描框的上面到屏幕上面，扫描框的下面到屏幕下面
-		//扫描框的左边面到屏幕左边，扫描框的右边到屏幕右边
+		
+		//����ɨ����������Ӱ���֣����ĸ����֣�ɨ�������浽��Ļ���棬ɨ�������浽��Ļ����
+		//ɨ��������浽��Ļ��ߣ�ɨ�����ұߵ���Ļ�ұ�
 		canvas.drawRect(0, 0, width, frame.top, paint);
 		canvas.drawRect(0, frame.top, frame.left, frame.bottom + 1, paint);
 		canvas.drawRect(frame.right + 1, frame.top, width, frame.bottom + 1,
 				paint);
 		canvas.drawRect(0, frame.bottom + 1, width, height, paint);
-
-
+		
+		
 
 		if (resultBitmap != null) {
 			// Draw the opaque result bitmap over the scanning rectangle
@@ -160,7 +160,7 @@ public final class ViewfinderView extends View {
 			canvas.drawBitmap(resultBitmap, frame.left, frame.top, paint);
 		} else {
 
-			//画扫描框边上的角，总共8个部分
+			//��ɨ�����ϵĽǣ��ܹ�8������
 			paint.setColor(Color.GREEN);
 			canvas.drawRect(frame.left, frame.top, frame.left + ScreenRate,
 					frame.top + CORNER_WIDTH, paint);
@@ -179,23 +179,31 @@ public final class ViewfinderView extends View {
 			canvas.drawRect(frame.right - CORNER_WIDTH, frame.bottom - ScreenRate,
 					frame.right, frame.bottom, paint);
 
-
-			//绘制中间的线,每次刷新界面，中间的线往下移动SPEEN_DISTANCE
+			
+			//�����м����,ÿ��ˢ�½��棬�м���������ƶ�SPEEN_DISTANCE
+			
 			slideTop += SPEEN_DISTANCE;
 			if(slideTop >= frame.bottom){
 				slideTop = frame.top;
 			}
-			canvas.drawRect(frame.left + MIDDLE_LINE_PADDING, slideTop - MIDDLE_LINE_WIDTH/2, frame.right - MIDDLE_LINE_PADDING,slideTop + MIDDLE_LINE_WIDTH/2, paint);
-
-
-			//画扫描框下面的字
-			paint.setColor(Color.WHITE);
-			paint.setTextSize(TEXT_SIZE * density);
-			paint.setAlpha(0x40);
-			paint.setTypeface(Typeface.create("System", Typeface.BOLD));
-			canvas.drawText(getResources().getString(R.string.scan_text), frame.left, (float) (frame.bottom + (float)TEXT_PADDING_TOP *density), paint);
-
-
+			Rect lineRect = new Rect();
+            lineRect.left = frame.left;  
+            lineRect.right = frame.right;  
+            lineRect.top = slideTop;  
+            lineRect.bottom = slideTop + 18;  
+            canvas.drawBitmap(((BitmapDrawable)(getResources().getDrawable(R.drawable.qrcode_scan_line))).getBitmap(), null, lineRect, paint);
+			
+        	//��ɨ����������
+            paint.setColor(Color.WHITE);
+            paint.setTextSize(TEXT_SIZE * density);    
+            paint.setAlpha(0x40);    
+            paint.setTypeface(Typeface.create("System", Typeface.BOLD));
+            String text = getResources().getString(R.string.scan_text);
+            float textWidth = paint.measureText(text);  
+              
+            canvas.drawText(text, (width - textWidth)/2, (float) (frame.bottom + (float)TEXT_PADDING_TOP *density), paint); 
+			
+			
 
 			Collection<ResultPoint> currentPossible = possibleResultPoints;
 			Collection<ResultPoint> currentLast = lastPossibleResultPoints;
@@ -220,11 +228,11 @@ public final class ViewfinderView extends View {
 				}
 			}
 
-
-			//只刷新扫描框的内容，其他地方不刷新
+			
+			//ֻˢ��ɨ�������ݣ�����ط���ˢ��
 			postInvalidateDelayed(ANIMATION_DELAY, frame.left, frame.top,
 					frame.right, frame.bottom);
-
+			
 		}
 	}
 
@@ -236,7 +244,7 @@ public final class ViewfinderView extends View {
 	/**
 	 * Draw a bitmap with the result points highlighted instead of the live
 	 * scanning display.
-	 *
+	 * 
 	 * @param barcode
 	 *            An image of the decoded barcode.
 	 */

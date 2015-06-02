@@ -79,10 +79,6 @@
                 android:name="com.wuxianyingke.property.activities.RepairInfoActivity"
                 android:configChanges="orientation|keyboardHidden|navigation"
                 android:screenOrientation="portrait" />
-        <activity
-                android:name="com.wuxianyingke.property.activities.QRcodeCaptureActivity"
-                android:configChanges="orientation|keyboardHidden|navigation"
-                android:screenOrientation="portrait" />
 
         <activity
             android:name="com.wuxianyingke.property.activities.MessageInfoActivity"
@@ -218,6 +214,11 @@
             android:screenOrientation="portrait" >
         </activity>
         <activity
+            android:name="com.wuxianyingke.property.activities.MipcaActivityCapture"
+            android:configChanges="orientation|keyboardHidden|navigation"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
             android:name="com.wuxianyingke.property.activities.CanyinDetailTuanListActivity"
             android:configChanges="orientation|keyboardHidden|navigation"
             android:screenOrientation="portrait" >
@@ -316,4 +317,10 @@
     <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" /> 
     <uses-permission android:name="android.permission.CHANGE_CONFIGURATION" />
+
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.CAMERA" />
+
+    <uses-feature android:name="android.hardware.camera" />
+    <uses-feature android:name="android.hardware.camera.autofocus" />
 </manifest>

@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.wuxianyingke.zxing.decoding;
+package com.wuxianyingke.property.decoding;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -27,9 +27,9 @@ import android.util.Log;
 import com.google.zxing.BarcodeFormat;
 import com.google.zxing.Result;
 import com.mantoto.property.R;
-import com.wuxianyingke.property.activities.QRcodeCaptureActivity;
-import com.wuxianyingke.zxing.camera.CameraManager;
-import com.wuxianyingke.zxing.view.ViewfinderResultPointCallback;
+import com.wuxianyingke.property.activities.MipcaActivityCapture;
+import com.wuxianyingke.property.camera.CameraManager;
+import com.wuxianyingke.property.view.ViewfinderResultPointCallback;
 
 import java.util.Vector;
 
@@ -40,7 +40,7 @@ public final class CaptureActivityHandler extends Handler {
 
   private static final String TAG = CaptureActivityHandler.class.getSimpleName();
 
-  private final QRcodeCaptureActivity activity;
+  private final MipcaActivityCapture activity;
   private final DecodeThread decodeThread;
   private State state;
 
@@ -50,7 +50,7 @@ public final class CaptureActivityHandler extends Handler {
     DONE
   }
 
-  public CaptureActivityHandler(QRcodeCaptureActivity activity, Vector<BarcodeFormat> decodeFormats,
+  public CaptureActivityHandler(MipcaActivityCapture activity, Vector<BarcodeFormat> decodeFormats,
       String characterSet) {
     this.activity = activity;
     decodeThread = new DecodeThread(activity, decodeFormats, characterSet,
@@ -84,9 +84,9 @@ public final class CaptureActivityHandler extends Handler {
         
         /***********************************************************************/
         Bitmap barcode = bundle == null ? null :
-            (Bitmap) bundle.getParcelable(DecodeThread.BARCODE_BITMAP);
+            (Bitmap) bundle.getParcelable(DecodeThread.BARCODE_BITMAP);//���ñ����߳�
         
-        activity.handleDecode((Result) message.obj, barcode);//       /***********************************************************************/
+        activity.handleDecode((Result) message.obj, barcode);//���ؽ��?        /***********************************************************************/
         break;
       case R.id.decode_failed:
         // We're decoding as fast as possible, so when one decode fails, start another.

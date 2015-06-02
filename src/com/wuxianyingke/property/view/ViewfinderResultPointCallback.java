@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.wuxianyingke.zxing.view;
+package com.wuxianyingke.property.view;
 
 import com.google.zxing.ResultPoint;
 import com.google.zxing.ResultPointCallback;

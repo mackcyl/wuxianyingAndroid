@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.wuxianyingke.zxing.camera;
+package com.wuxianyingke.property.camera;
 
 import android.hardware.Camera;
 import android.os.Handler;
