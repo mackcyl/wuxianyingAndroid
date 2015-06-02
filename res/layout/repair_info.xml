@@ -102,7 +102,6 @@
                 android:layout_marginTop="24dip"
                 android:gravity="top"
                 android:orientation="vertical" >
-
             </LinearLayout>
         </LinearLayout>
     </ScrollView>

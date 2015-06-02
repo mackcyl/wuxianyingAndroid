@@ -18,6 +18,7 @@ import com.mantoto.property.R;
 import com.wuxianyingke.property.adapter.ImageAdapter;
 import com.wuxianyingke.property.common.Constants;
 import com.wuxianyingke.property.common.LocalStore;
+import com.wuxianyingke.property.common.LogUtil;
 import com.wuxianyingke.property.remote.RemoteApi.RepairPicture;
 import com.wuxianyingke.property.threads.GetRepairInfoThread;
 import com.wuxianyingke.property.views.IndicationDotList;
@@ -69,29 +70,19 @@ public class RepairInfoActivity extends Activity {
                         for(int i = 0; i<repairPicList.size();i++)
                         {
                             RepairPicture repairPic = repairPicList.get(i);
-                            View v = getLayoutInflater().inflate(R.layout.canyin_detail_own_content, null);
 
-//                            int serverImageWidth = promotion.Width;
-//                            int serverImageHeight = promotion.Height;
+                            LogUtil.d("path=",repairPic.path);
 
+                            View v = getLayoutInflater().inflate(R.layout.repair_image_content, null);
                             ImageView canyinImg = (ImageView) v.findViewById(R.id.canyinImg);
-
-//						Log.i("ACTIVITY_IMG_FINISH", "图片尺寸: 宽度 = " + canyinImg.getWidth() + "高度 = :" + canyinImg.getHeight());
                             canyinImg.setScaleType(ImageView.ScaleType.FIT_XY);
-                            Display display = getWindowManager().getDefaultDisplay();
-//                            LayoutParams params = canyinImg.getLayoutParams();
-//                            params.width = display.getWidth()-20;
-//                            params.height = (display.getWidth()-20)*serverImageHeight/serverImageWidth;
-
-//                            canyinImg.setLayoutParams(params);
                             canyinImg.setVisibility(View.GONE);
                             activityImgList.add(canyinImg);
                             repairInfo.addView(v);
                         }
-
                     }
                     break;
-                case Constants.MSG_GET_ACTIVITY_IMG_FINISH:
+                case Constants.MSG_GET_REPAIR_PIC_FINSH:
                 {
                     ImageView canyinImg= activityImgList.get(msg.arg1);
                     ViewGroup.LayoutParams pr=canyinImg.getLayoutParams();
@@ -111,7 +102,6 @@ public class RepairInfoActivity extends Activity {
         SharedPreferences saving = this.getSharedPreferences(
                 LocalStore.USER_INFO, 0);
         propertyid = (int) saving.getLong(LocalStore.PROPERTY_ID, 0);
-
         topbar_txt= (TextView) findViewById(R.id.topbar_txt) ;
         topbar_left=(Button)findViewById(R.id.topbar_left);
         topbar_left.setVisibility(View.VISIBLE);
@@ -135,7 +125,7 @@ public class RepairInfoActivity extends Activity {
         repair_ctime.setText(mRepairCTime);
 
         repairInfo = (LinearLayout)findViewById(R.id.repair_info);
-
+        changeTo(1);
         userid = LocalStore.getUserInfo().userId;
         mThread = new GetRepairInfoThread(this,mHandler,propertyid,repairId,userid);
         mThread.start() ;
