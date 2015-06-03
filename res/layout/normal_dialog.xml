@@ -55,7 +55,9 @@
     <LinearLayout 
         android:id="@+id/normal_dialog_2"
         android:layout_width="fill_parent"
-        android:layout_height="40dip">
+        android:layout_height="40dip"
+        android:visibility="gone"
+            >
         <TextView 
             android:id="@+id/dialog_button_1"
             android:layout_width="124dip"
@@ -83,7 +85,7 @@
         	android:id="@+id/normal_dialog_1"
         	android:layout_width="fill_parent"
         	android:layout_height="40dip"
-        	android:visibility="gone">
+                >
         <TextView 
             android:id="@+id/dialog_button_3"
             android:layout_width="250dip"

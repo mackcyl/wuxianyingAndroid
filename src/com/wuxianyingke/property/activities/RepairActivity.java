@@ -117,9 +117,6 @@ public class RepairActivity extends BaseActivityWithRadioGroup {
 
                     LinearLayout.LayoutParams params_rb = new LinearLayout.LayoutParams(   LinearLayout.LayoutParams.WRAP_CONTENT,
                             LinearLayout.LayoutParams.WRAP_CONTENT );
-//                            (int)(25*density));
-//                    int margin = (int)(2*density);
-//                    params_rb.setMargins(margin, 0, margin, 0);
 
                     backupExpandHeader.setLayoutParams(params_rb);
                     TextView popTitle = (TextView) backupExpandHeader.findViewById(R.id.popDialogTitle);

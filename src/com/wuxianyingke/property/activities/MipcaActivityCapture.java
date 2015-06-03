@@ -9,6 +9,7 @@ import android.app.AlertDialog;
 import android.app.Dialog;
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.res.AssetFileDescriptor;
 import android.database.Cursor;
 import android.graphics.Bitmap;
@@ -41,10 +42,13 @@ import com.google.zxing.common.HybridBinarizer;
 import com.google.zxing.qrcode.QRCodeReader;
 import com.mantoto.property.R;
 import com.wuxianyingke.property.camera.CameraManager;
+import com.wuxianyingke.property.common.LocalStore;
 import com.wuxianyingke.property.common.LogUtil;
 import com.wuxianyingke.property.decoding.CaptureActivityHandler;
 import com.wuxianyingke.property.decoding.InactivityTimer;
 import com.wuxianyingke.property.decoding.RGBLuminanceSource;
+import com.wuxianyingke.property.remote.RemoteApi;
+import com.wuxianyingke.property.remote.RemoteApiImpl;
 import com.wuxianyingke.property.view.ViewfinderView;
 
 public class MipcaActivityCapture extends Activity implements Callback, View.OnClickListener{
@@ -67,8 +71,15 @@ public class MipcaActivityCapture extends Activity implements Callback, View.OnC
 	private ProgressDialog mProgress;
 	private String photo_path;
 	private Bitmap scanBitmap;
-
     Dialog dialog = null;
+
+	private String mErrorInfo = "";
+	private String desc = "";
+	private String resultString;
+	private SharedPreferences saving;
+	private int propertyid;
+
+
 	/** Called when the activity is first created. */
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -83,7 +94,10 @@ public class MipcaActivityCapture extends Activity implements Callback, View.OnC
 		mButtonBack.setOnClickListener(this);
 		hasSurface = false;
 		inactivityTimer = new InactivityTimer(this);
-		
+
+		saving = this.getSharedPreferences(LocalStore.USER_INFO, 0);
+		propertyid = (int) saving.getLong(LocalStore.PROPERTY_ID, 0);
+
 		ImageButton mImageButton = (ImageButton) findViewById(R.id.button_function);
 		mImageButton.setOnClickListener(this);
 	}
@@ -111,16 +125,65 @@ public class MipcaActivityCapture extends Activity implements Callback, View.OnC
 		@Override
 		public void handleMessage(Message msg) {
 			super.handleMessage(msg);
-			
 			mProgress.dismiss();
 			switch (msg.what) {
+				// 登录失败
+				case 0:
+					Toast.makeText(MipcaActivityCapture.this, mErrorInfo,
+							Toast.LENGTH_SHORT).show();
+					break;
+
+				// 登陆成功
+				case 200:
+					Toast.makeText(MipcaActivityCapture.this, "签码成功",
+							Toast.LENGTH_SHORT).show();
+					dialog = new AlertDialog.Builder(MipcaActivityCapture.this).create();
+					LayoutInflater inflater = LayoutInflater.from(MipcaActivityCapture.this);
+					View backupExpandHeader = inflater.inflate(R.layout.normal_dialog, null);
+
+					LinearLayout.LayoutParams params_rb = new LinearLayout.LayoutParams(   LinearLayout.LayoutParams.WRAP_CONTENT,
+							LinearLayout.LayoutParams.WRAP_CONTENT );
+
+					backupExpandHeader.setLayoutParams(params_rb);
+					TextView popTitle = (TextView) backupExpandHeader.findViewById(R.id.normal_dialog_title);
+					popTitle.setText("签码");
+					TextView popInfo = (TextView) backupExpandHeader.findViewById(R.id.normal_dialog_content);
+					popInfo.setText("签码成功,感谢使用!" + resultString);
+					TextView okButton = (TextView) backupExpandHeader.findViewById(R.id.dialog_button_3);
+					okButton.setText("确认");
+					okButton.setOnClickListener(new View.OnClickListener() {
+						@Override
+						public void onClick(View view) {
+							MipcaActivityCapture.this.finish();
+						}
+					});
+					dialog.show();
+					dialog.setContentView(backupExpandHeader);
+
+					break;
+				// 通讯错误
+				case 4:
+					Toast.makeText(MipcaActivityCapture.this, "通讯错误，请检查网络或稍后再试。",
+							Toast.LENGTH_SHORT).show();
+					break;
+				case 8:
+					Toast.makeText(MipcaActivityCapture.this, desc,
+							Toast.LENGTH_SHORT).show();
+					break;
+				case 9:
+					Toast.makeText(MipcaActivityCapture.this, "网络超时，请重新获取",
+							Toast.LENGTH_SHORT).show();
+					break;
+				case 201:
+					Toast.makeText(MipcaActivityCapture.this, "网络超时，请重新获取",
+							Toast.LENGTH_SHORT).show();
+					break;
 			case PARSE_BARCODE_SUC:
 				onResultHandler((String)msg.obj, scanBitmap);
 				break;
 			case PARSE_BARCODE_FAIL:
 				Toast.makeText(MipcaActivityCapture.this, (String) msg.obj, Toast.LENGTH_LONG).show();
 				break;
-
 			}
 		}
 		
@@ -256,8 +319,34 @@ public class MipcaActivityCapture extends Activity implements Callback, View.OnC
 	public void handleDecode(Result result, Bitmap barcode) {
 		inactivityTimer.onActivity();
 		playBeepSoundAndVibrate();
-		String resultString = result.getText();
-		onResultHandler(resultString, barcode);
+		resultString = result.getText();
+//		onResultHandler(resultString, barcode);
+
+		mProgress = new ProgressDialog(MipcaActivityCapture.this);
+		mProgress.setMessage("正在签码...");
+		mProgress.setCancelable(false);
+		mProgress.show();
+
+		Thread loginThread = new Thread() {
+			public void run() {
+				RemoteApiImpl remote = new RemoteApiImpl();
+				RemoteApi.NetInfo netInfo = null;
+				netInfo = remote.repairSolved(propertyid,saving.getLong(LocalStore.USER_ID, 0),1,resultString.trim());
+				Message msg = new Message();
+				if (netInfo == null) {
+					msg.what = 4;
+				} else if (200 == netInfo.code) {
+					msg.what = 1;
+					desc = netInfo.desc;
+				} else {
+					msg.what = 0;
+					mErrorInfo = netInfo.desc;
+				}
+
+				mHandler.sendMessage(msg);
+			}
+		};
+		loginThread.start();
 	}
 
     /**
@@ -271,42 +360,13 @@ public class MipcaActivityCapture extends Activity implements Callback, View.OnC
 			return;
 		}
         LogUtil.d("resultString=",resultString);
-
-
-        dialog = new AlertDialog.Builder(MipcaActivityCapture.this).create();
-        LayoutInflater inflater = LayoutInflater.from(MipcaActivityCapture.this);
-        View backupExpandHeader = inflater.inflate(R.layout.normal_dialog, null);
-
-        LinearLayout.LayoutParams params_rb = new LinearLayout.LayoutParams(   LinearLayout.LayoutParams.WRAP_CONTENT,
-                LinearLayout.LayoutParams.WRAP_CONTENT );
-
-        backupExpandHeader.setLayoutParams(params_rb);
-        TextView popTitle = (TextView) backupExpandHeader.findViewById(R.id.popDialogTitle);
-        popTitle.setText("扫码成功,感谢使用!");
-        TextView popInfo = (TextView) backupExpandHeader.findViewById(R.id.popDialogInfo);
-        popInfo.setText(resultString);
-        Button okButton = (Button) backupExpandHeader.findViewById(R.id.ButtonOK);
-
-        okButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-//                Intent intent = new Intent();
-                MipcaActivityCapture.this.finish();
-//                intent.setClass(MipcaActivityCapture.this,Radio1Activity.class);
-//                startActivity(intent);
-//                finish();
-            }
-        });
-        dialog.show();
-        dialog.setContentView(backupExpandHeader);
-
 //		Intent resultIntent = new Intent();
 //		Bundle bundle = new Bundle();
 //		bundle.putString("result", resultString);
 //		bundle.putParcelable("bitmap", bitmap);
 //		resultIntent.putExtras(bundle);
 //		this.setResult(RESULT_OK, resultIntent);
-		MipcaActivityCapture.this.finish();
+//		MipcaActivityCapture.this.finish();
 	}
 	
 	private void initCamera(SurfaceHolder surfaceHolder) {

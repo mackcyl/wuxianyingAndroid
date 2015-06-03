@@ -3041,4 +3041,48 @@ public class RemoteApiImpl implements RemoteApi {
 			return ret;
 		}
 	}
+
+	@Override
+	public NetInfo repairSolved(int propertyid, long userid, int repairid, String code) {
+		JSONObject response = null;
+		JSONObject lastest = new JSONObject();
+		NetInfo ret = null;
+		ret = new NetInfo();
+
+
+
+		try {
+
+			lastest.put("propertyid", propertyid);
+			lastest.put("userid", userid);
+			lastest.put("repairid", repairid);
+			lastest.put("code", code);
+
+
+			byte[] httpPostBytes = lastest.toString().getBytes();
+			LogUtil.d("getRepairPicture", "param:" + new String(httpPostBytes));
+			LogUtil.d("getRepairPicture", "url:" + Constants.REPAIR_LIST_URL);
+
+
+			response = HttpComm.sendJSONToServer(
+					Constants.REPAIR_SOLVED_URL, lastest,
+					Constants.HTTP_SO_TIMEOUT);
+			if (response == null) {
+				return null;
+			}
+
+			ret.code = response.getInt("code");
+			ret.desc = response.getString("desc");
+
+			return ret;
+
+		} catch (Exception ex) {
+			ex.printStackTrace();
+			LogUtil.d("MyTag",
+					"Remote sendRepairNew error: " + ex.getMessage());
+			ret.code = 4;
+			ret.desc = "";
+			return ret;
+		}
+	}
 }
