@@ -17,7 +17,9 @@ import com.mantoto.property.R;
 import com.wuxianyingke.property.common.Constants;
 import com.wuxianyingke.property.common.LocalStore;
 import com.wuxianyingke.property.common.LogUtil;
+import com.wuxianyingke.property.remote.RemoteApi;
 import com.wuxianyingke.property.remote.RemoteApi.RepairLog;
+import com.wuxianyingke.property.remote.RemoteApiImpl;
 import com.wuxianyingke.property.threads.RepairLogThread;
 
 import java.util.List;
@@ -63,29 +65,29 @@ public class RepairLogActivity extends Activity {
 					break;
 				case 3:
 				{
-					
-//						SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-//						if(input_message!=null)
-//							input_message.setText("");
-//						addMessageMine(msgbody, sdf.format(new Date()));
-//						if (mWaitLoading != null)
-//						{
-//							mWaitLoading.dismiss();
-//							mWaitLoading = null;
-//
-//						}
+
+					Toast.makeText(getApplicationContext(), "操作成功",
+							Toast.LENGTH_SHORT).show();
+					if (mWaitLoading != null)
+					{
+						mWaitLoading.dismiss();
+						mWaitLoading = null;
+
+					}
+					RepairLogActivity.this.finish();
+
 				}
 					break;
 				case 4:
 					{
-//						Toast.makeText(getApplicationContext(), "发送错误："+errorInfo,
-//							     Toast.LENGTH_SHORT).show();
-//							if (mWaitLoading != null)
-//							{
-//								mWaitLoading.dismiss();
-//								mWaitLoading = null;
-//
-//							}
+						Toast.makeText(getApplicationContext(), "发送错误："+errorInfo,
+							     Toast.LENGTH_SHORT).show();
+							if (mWaitLoading != null)
+							{
+								mWaitLoading.dismiss();
+								mWaitLoading = null;
+
+							}
 					}
 						break;
 				case Constants.MSG_NETWORK_ERROR:
@@ -191,6 +193,12 @@ public class RepairLogActivity extends Activity {
 			case 1:
 			case 2:
 				repair_handle.setVisibility(View.VISIBLE);
+				repair_handle.setOnClickListener(new OnClickListener() {
+					@Override
+					public void onClick(View view) {
+						RepairRemove();
+					}
+				});
 				break;
 			case 3:
 			case 4:
@@ -247,18 +255,14 @@ public class RepairLogActivity extends Activity {
         */
     }
 
-	private void sendInBoxMessage(final Context activity,
-			final long messageId,final String mEmailMessageTitle, final String mEmailMessageBody) {
+	private void RepairRemove() {
 
-		/*
-		mWaitLoading = ProgressDialog.show(activity, null, "发送中，请稍候......",
+		mWaitLoading = ProgressDialog.show(RepairLogActivity.this, null, "撤回中，请稍候......",
 				true);
-		Thread registerThread = new Thread() {
+		Thread repairRemoveThread = new Thread() {
 			public void run() {
 				RemoteApiImpl remote = new RemoteApiImpl();
-				NetInfo netInfo = remote.sendMessageReply(RepairLogActivity.this, LocalStore.getUserInfo().userId, propertyid,
-						(int)messageId, mEmailMessageTitle, mEmailMessageBody);
-
+				RemoteApi.NetInfo netInfo = remote.repairRemove(propertyid, LocalStore.getUserInfo().userId, (int)rootid);
 				Message msg = new Message();
 				if (netInfo == null) {
 					msg.what = 4;
@@ -271,8 +275,7 @@ public class RepairLogActivity extends Activity {
 				mHandler.sendMessage(msg);
 			}
 		};
-		registerThread.start();
-		*/
+		repairRemoveThread.start();
 	}
 	
     @Override
@@ -285,7 +288,6 @@ public class RepairLogActivity extends Activity {
 	{
 		TextView repair_log_content;
 		TextView repair_log_time;
-		TextView repair_theWorker;
 	}
     private void addRepairLogMine(String content, String time) {
     	View v = LayoutInflater.from(this).inflate(R.layout.repair_log_content1, null);
@@ -297,15 +299,13 @@ public class RepairLogActivity extends Activity {
     	ScrollViewLinearLayout.addView(v);
     }
     
-    private void addRepairLogTheirs(String content, String time,String theWorker) {
+    private void addRepairLogTheirs(String content, String time) {
     	View v = LayoutInflater.from(this).inflate(R.layout.repair_log_content2, null);
 		RepairLogItem item = new RepairLogItem();
     	item.repair_log_content = (TextView) v.findViewById(R.id.repair_log_content);
     	item.repair_log_time = (TextView) v.findViewById(R.id.repair_log_time);
-    	item.repair_theWorker = (TextView) v.findViewById(R.id.repair_log_theWorker);
     	item.repair_log_content.setText(content);
     	item.repair_log_time.setText(time);
-    	item.repair_theWorker.setText(theWorker);
     	ScrollViewLinearLayout.addView(v);
     }
     
@@ -322,10 +322,17 @@ public class RepairLogActivity extends Activity {
 		{
 			RepairLog info = list.get(i);
 
-			LogUtil.d("displayContent",info.displayContent);
+			LogUtil.d("displayContent",info.displayContent+" theRepairStatus="+info.theRepairStatus);
+
+			if (info.theRepairStatus == 7){
+				addRepairLogTheirs(info.displayContent, info.cTime);
+			}else{
+				addRepairLogMine(info.displayContent, info.cTime);
+			}
+
 //			if(info.toUserId==userid||info.toUserId==-1)
 //			{
-			addRepairLogMine(info.displayContent, info.cTime);
+
 //			}
 //			else
 //			{

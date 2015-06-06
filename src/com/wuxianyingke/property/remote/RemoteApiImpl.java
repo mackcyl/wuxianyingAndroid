@@ -2779,6 +2779,11 @@ public class RemoteApiImpl implements RemoteApi {
 
 
 		try {
+
+			if(count > 1){
+				LogUtil.d("getRepairList", "count:" + count);
+				return null;
+			}
 			lastest.put("propertyid", propertyid);
 			lastest.put("userid", userId);
 			lastest.put("pageindex", count);
@@ -2798,6 +2803,7 @@ public class RemoteApiImpl implements RemoteApi {
 
 			if (200 == response.getInt("code")) {
 				JSONArray jsArray = (JSONArray) response.get("repairarray");
+				SimpleDateFormat ymdSdf = new SimpleDateFormat("yyyy-MM-dd");
 				for (int i = 0; i < jsArray.length(); i++) {
 					JSONObject obj = (JSONObject) jsArray.get(i);
 					Repair repair = new Repair();
@@ -2807,14 +2813,14 @@ public class RemoteApiImpl implements RemoteApi {
 					String ctime = obj.getString("CTime");
 					if (!"".equals(ctime)) {
 						long ctimes = Long.valueOf(ctime);
-						repair.cTime = sdf.format(ctimes);
+						repair.cTime = ymdSdf.format(ctimes);
 					}
 					repair.room = obj.getString("Room");
 					repair.contact = obj.getString("Contact");
 					String otime = obj.getString("OTime");
 					if (!"".equals(otime)) {
 						long otimes = Long.valueOf(otime);
-						repair.oTime = sdf.format(otimes);
+						repair.oTime = ymdSdf.format(otimes);
 					}
 
 					JSONObject statusObj = obj.getJSONObject("Status");
@@ -2891,11 +2897,15 @@ public class RemoteApiImpl implements RemoteApi {
 
 					RepairLog repairLog = new RepairLog();
 					repairLog.displayContent = obj.getString("DisplayContent");
+
 					String repairLogCTime = obj.getString("RepairLogCTime");
 					if (!"".equals(repairLogCTime)) {
 						long ctimes = Long.valueOf(repairLogCTime);
 						repairLog.cTime = sdf.format(ctimes);
 					}
+
+					JSONObject statusObj = obj.getJSONObject("TheRepairStatus");
+					repairLog.theRepairStatus = statusObj.getInt("RepairStatusID");
 
 					/*
 					Repair repair = new Repair();
@@ -3059,9 +3069,9 @@ public class RemoteApiImpl implements RemoteApi {
 			lastest.put("code", code);
 
 
-			byte[] httpPostBytes = lastest.toString().getBytes();
-			LogUtil.d("getRepairPicture", "param:" + new String(httpPostBytes));
-			LogUtil.d("getRepairPicture", "url:" + Constants.REPAIR_LIST_URL);
+//			byte[] httpPostBytes = lastest.toString().getBytes();
+//			LogUtil.d("repairSolved", "param:" + new String(httpPostBytes));
+//			LogUtil.d("repairSolved", "url:" + Constants.REPAIR_LIST_URL);
 
 
 			response = HttpComm.sendJSONToServer(
@@ -3071,6 +3081,45 @@ public class RemoteApiImpl implements RemoteApi {
 				return null;
 			}
 
+			ret.code = response.getInt("code");
+			ret.desc = response.getString("desc");
+
+			return ret;
+
+		} catch (Exception ex) {
+			ex.printStackTrace();
+			LogUtil.d("MyTag",
+					"Remote sendRepairNew error: " + ex.getMessage());
+			ret.code = 4;
+			ret.desc = "";
+			return ret;
+		}
+	}
+
+	@Override
+	public NetInfo repairRemove(int propertyid, long userid, int repairid) {
+		JSONObject response = null;
+		JSONObject lastest = new JSONObject();
+		NetInfo ret = null;
+		ret = new NetInfo();
+		try {
+
+			lastest.put("propertyid", propertyid);
+			lastest.put("userid", userid);
+			lastest.put("repairid", repairid);
+
+
+			byte[] httpPostBytes = lastest.toString().getBytes();
+			LogUtil.d("repairRemove", "param:" + new String(httpPostBytes));
+			LogUtil.d("repairRemove", "url:" + Constants.REPAIR_REMOVE_URL);
+
+
+			response = HttpComm.sendJSONToServer(
+					Constants.REPAIR_REMOVE_URL, lastest,
+					Constants.HTTP_SO_TIMEOUT);
+			if (response == null) {
+				return null;
+			}
 			ret.code = response.getInt("code");
 			ret.desc = response.getString("desc");
 

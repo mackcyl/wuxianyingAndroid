@@ -37,7 +37,7 @@ public class RepairListAdapter extends BaseAdapter {
 		for(int i=0; i<list.size(); i++)
 		{
 			mList.add(list.get(i));
-//			mCount++;
+			mCount++;
 		}
 	}
 	
@@ -91,11 +91,11 @@ public class RepairListAdapter extends BaseAdapter {
 
 		switch (statusId){
 			case 1:
+			case 2:
+			case 7:
 				activityItem.mRepairStatusTextView.setTextColor(0xffff0b20);
 				activityItem.isReadImg.setVisibility(View.VISIBLE);
 				activityItem.mRepairStatusTextView.setText("查看进度");
-				break;
-			case 2:
 				break;
 			case 3:
 				activityItem.isReadImg.setVisibility(View.INVISIBLE);
@@ -103,7 +103,16 @@ public class RepairListAdapter extends BaseAdapter {
 				activityItem.mRepairStatusTextView.setText(activity.status.repairStatusName);
 				break;
 			case 4:
+			case 5:
+			case 6:
+				activityItem.isReadImg.setVisibility(View.INVISIBLE);
+				activityItem.mRepairStatusTextView.setTextColor(0xff999999);
+				activityItem.mRepairStatusTextView.setText(activity.status.repairStatusName);
 				break;
+
+
+
+
 		}
 
 		activityItem.mRepairTypeTextView.setText(activity.type.repairTypeName+" - ");
