@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">掌上物业</string>
-    <string name="company_name">掌上物业</string>
+    <string name="app_name">快工单</string>
+    <string name="company_name">无线盈科技</string>
     <string name="radio_main1">首页</string>
     <string name="radio_main2">物业通知</string>
     <string name="radio_main3">信息反馈</string>

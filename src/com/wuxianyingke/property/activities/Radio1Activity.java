@@ -179,9 +179,6 @@ public class Radio1Activity extends Activity
 		Date_day_TextView.setText(mDay);
 		Date_weekday_TextView.setText("星期"+mWay);
 
-		LogUtil.d(TAG, "city_name =" + LocalStore.cityInfo.city_name);
-		LogUtil.d(TAG, "temp1 =" + LocalStore.weatherInfo.temp1);
-		LogUtil.d(TAG,"fl1 什么情况? 中文问题="+LocalStore.weatherInfo.fl1);
 
 		DiZhiTextView.setText(LocalStore.cityInfo.city_name);
 		WenduTextView.setText(LocalStore.weatherInfo.temp1);

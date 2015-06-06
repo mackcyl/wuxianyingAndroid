@@ -28,6 +28,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name="com.wuxianyingke.property.activities.PropertyNotificationInfoActivity"
+                  android:configChanges="orientation|keyboardHidden|navigation"
+                  android:screenOrientation="portrait" />
         <activity
             android:name="com.wuxianyingke.property.activities.MainActivity"
             android:configChanges="orientation|keyboardHidden|navigation"
